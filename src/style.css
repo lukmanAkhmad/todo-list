@@ -8,6 +8,9 @@ body{
 }
 .sidebar{
     background-color: rgb(230, 230, 230);
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr;
+    grid-row: 1 / 4;
 }
 .main-content{
     background-color: darkgray;
@@ -16,6 +19,6 @@ body{
 .container{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    /* grid-template-rows: 1fr 4fr; */
+    grid-template-rows: 1fr;
     height: 100%;
 }
