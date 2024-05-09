@@ -25,14 +25,21 @@ body {
     grid-template-rows: 1fr 1fr 5fr;
     grid-row: 1 / 4;
 }
+
+.sidebar div{
+    padding-left: 20px;
+}
+
 .dashboard{
     display: flex;
     align-items: center;
     gap: 15px;
     font-size: 40px;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 .dashboard-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     fill: yellowgreen;
 }
