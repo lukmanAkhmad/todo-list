@@ -26,11 +26,15 @@ body {
     grid-row: 1 / 4;
 }
 
-.sidebar div{
+.dashboard,
+.add-todolist,
+.list-todolist {
     padding-left: 20px;
+    padding-right: 20px;
+    font-family: sans-serif;
 }
 
-.dashboard{
+.dashboard {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -38,8 +42,39 @@ body {
     font-weight: bold;
     font-family: sans-serif;
 }
+
 .dashboard-icon {
     width: 60px;
     height: 60px;
     fill: yellowgreen;
+}
+.add-todolist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.p-add-todolist{
+    font-size: 33px;
+}
+.btn-add-todolist{
+    height: 55px;
+    width: 120px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.item-todolist{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container-svg-item-todolist{
+    display: flex;
+    gap: 15px;
+}
+.p-item-todolist{
+    font-size: 25px;
+}
+.icon-item-todolist{
+    height: 30px;
+    width: 30px;
 }
