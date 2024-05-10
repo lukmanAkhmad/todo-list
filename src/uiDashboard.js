@@ -1,5 +1,6 @@
 import logoMyTodolist from '/assets/img/playlist-check.svg';
 import plusSign from '/assets/img/plus.svg';
+import editSign from '/assets/img/playlist-edit.svg';
 
 
 export function createContentSidebar() {
