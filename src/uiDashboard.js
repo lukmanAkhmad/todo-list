@@ -9,7 +9,7 @@ export function createContentSidebar() {
 
     divSidebar.appendChild(createHeaderSidebar());
     divSidebar.appendChild(createMainSidebar());
-
+    divSidebar.appendChild(createContainerList());
 }
 
 function createHeaderSidebar(){
@@ -61,5 +61,37 @@ function createContainerList(){
     const containerList = document.createElement('div');
     containerList.classList.add('container-list');
 
+    containerList.appendChild(createItemTodolist());
+
     return containerList;
 };
+
+function createItemTodolist(){
+    const itemTodolist = document.createElement('div');
+    itemTodolist.classList.add('item-todolist');
+
+    const paraItemTodolist = document.createElement('p');
+    paraItemTodolist.classList.add('p-item-todolist');
+    paraItemTodolist.textContent = 'List 1';
+    itemTodolist.appendChild(paraItemTodolist);
+
+    const containerSvgItemTodolist = document.createElement('div');
+    containerSvgItemTodolist.classList.add('container-svg-item-todolist');
+    itemTodolist.appendChild(containerSvgItemTodolist);
+
+    const imgEdit = new Image();
+    imgEdit.classList.add('icon-item-todolist');
+    imgEdit.src = editSign;
+    imgEdit.alt = 'edit sign';
+    containerSvgItemTodolist.appendChild(imgEdit);
+
+    const imgTrash = new Image();
+    imgTrash.classList.add('icon-item-todolist');
+    imgTrash.src = trashSign;
+    imgTrash.alt = 'trash sign';
+    containerSvgItemTodolist.appendChild(imgTrash);
+
+    // buat yang ke 2 dan seterusnya bisa liat contoh restaurant-page
+
+    return itemTodolist;
+}
