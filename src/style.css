@@ -19,14 +19,14 @@ body {
     background-color: darkgray;
 }
 
-.sidebar {
+#sidebar {
     background-color: rgb(230, 230, 230);
     display: grid;
     grid-template-rows: 1fr 1fr 5fr;
     grid-row: 1 / 4;
 }
 
-.dashboard,
+.header-sidebar,
 .add-todolist,
 .list-todolist {
     padding-left: 20px;
@@ -34,7 +34,7 @@ body {
     font-family: sans-serif;
 }
 
-.dashboard {
+.header-sidebar {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -43,38 +43,57 @@ body {
     font-family: sans-serif;
 }
 
-.dashboard-icon {
+.header-sidebar-icon {
     width: 60px;
     height: 60px;
-    fill: yellowgreen;
 }
+
 .add-todolist {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.p-add-todolist{
+
+.p-add-todolist {
     font-size: 33px;
 }
-.btn-add-todolist{
+
+.btn-add-todolist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
     height: 55px;
     width: 120px;
     font-size: 20px;
     border-radius: 5px;
 }
-.item-todolist{
+
+.icon-btn-add-todolist {
+    height: 30px;
+    width: 30px;
+}
+
+.item-todolist {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 3px solid honeydew;
+    border-radius: 9px;
+    padding: 15px;
+    margin-bottom: 21px;
 }
-.container-svg-item-todolist{
+
+.container-svg-item-todolist {
     display: flex;
     gap: 15px;
 }
-.p-item-todolist{
+
+.p-item-todolist {
     font-size: 25px;
 }
-.icon-item-todolist{
+
+.icon-item-todolist {
     height: 30px;
     width: 30px;
 }
