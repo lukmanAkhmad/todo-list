@@ -56,3 +56,10 @@ function createMainSidebar(){
 
     return mainSidebar;
 }
+
+function createContainerList(){
+    const containerList = document.createElement('div');
+    containerList.classList.add('container-list');
+
+    return containerList;
+};
