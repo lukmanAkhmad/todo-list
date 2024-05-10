@@ -5,40 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    
 </head>
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="dashboard">
-                <svg class="dashboard-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <title>MY Todo List</title>
-                    <path
-                        d="M14 10H3V12H14V10M14 6H3V8H14V6M3 16H10V14H3V16M21.5 11.5L23 13L16 20L11.5 15.5L13 14L16 17L21.5 11.5Z" />
-                </svg>
-                <p class="p-dashboard">My Todo List</p>
-            </div>
+        <div id="sidebar">
             <div class="add-todolist">
                 <p class="p-add-todolist">My Lists</p>
-                <button class="btn-add-todolist">New + </button>
+                <button class="btn-add-todolist">
+                    <p class="p-btn-add-todolist">New</p><img class="icon-btn-add-todolist" src="./assets/img/plus.svg"
+                        alt="plus">
+                </button>
             </div>
             <div class="list-todolist">
                 <div class="item-todolist">
                     <p class="p-item-todolist">list 1</p>
                     <div class="container-svg-item-todolist">
-                        <svg class="icon-item-todolist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z" />
-                        </svg>
-                        <svg class="icon-item-todolist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
-                        </svg>
+                        <img src="/assets/img/playlist-edit.svg" alt="edit" class="icon-item-todolist">
+                        <img src="/assets/img/trash-can-outline.svg" alt="trash" class="icon-item-todolist">
                     </div>
                 </div>
                 <div class="item-todolist">
                     <p class="p-item-todolist">list 2</p>
+                    <div class="container-svg-item-todolist">
+                        <img src="/assets/img/playlist-edit.svg" alt="edit" class="icon-item-todolist">
+                        <img src="/assets/img/trash-can-outline.svg" alt="trash" class="icon-item-todolist">
+                    </div>
                 </div>
 
             </div>
