@@ -40,8 +40,11 @@ body {
     font-size: 40px;
     font-weight: bold;
     font-family: sans-serif;
+    margin: 10px;
 }
-
+.container-main-sidebar{
+    margin: 10px;
+}
 .header-sidebar-icon {
     width: 60px;
     height: 60px;
@@ -52,6 +55,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 35px;
 }
 
 .p-main-sidebar {
