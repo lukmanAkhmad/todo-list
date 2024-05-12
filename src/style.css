@@ -27,8 +27,7 @@ body {
 }
 
 .header-sidebar,
-.main-sidebar,
-.container-list {
+.container-main-sidebar {
     padding-left: 20px;
     padding-right: 20px;
     font-family: sans-serif;
@@ -46,6 +45,7 @@ body {
 .header-sidebar-icon {
     width: 60px;
     height: 60px;
+    fill: yellowgreen;
 }
 
 .main-sidebar {
@@ -82,6 +82,7 @@ body {
     border-radius: 9px;
     padding: 15px;
     margin-bottom: 21px;
+    width: 350px;
 }
 
 .container-svg-item-todolist {
@@ -97,3 +98,14 @@ body {
     height: 30px;
     width: 30px;
 }
+
+.form-container-list {
+    display: none;
+    align-items: center;
+    border: 3px solid honeydew;
+    border-radius: 9px;
+    padding: 15px;
+    margin-bottom: 21px;
+    width: 350px;
+}
+/* tambahin jarak antara judul logo dan main list */
