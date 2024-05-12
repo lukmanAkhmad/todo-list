@@ -5,12 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
 </head>
 
 <body>
     <div class="container">
-        <div id="sidebar"></div>
+        <div id="sidebar">
+            <div class="header-sidebar">
+                <svg class="header-sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>MY Todo List</title>
+                    <path
+                        d="M14 10H3V12H14V10M14 6H3V8H14V6M3 16H10V14H3V16M21.5 11.5L23 13L16 20L11.5 15.5L13 14L16 17L21.5 11.5Z" />
+                </svg>
+                <p class="sidebar">My Todo List</p>
+            </div>
+            <div class="container-main-sidebar">
+                <div class="main-sidebar">
+                    <p class="p-main-sidebar">My List</p>
+                    <button class="btn-main-sidebar">
+                        <p class="p-btn-main-sidebar">New</p>
+                        <svg class="img-btn-main-sidebar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <title>plus sign</title>
+                            <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                        </svg>
+                    </button>
+                </div>
+                <ul class="container-list"></ul>
+                <form class="form-container-list" action="#" style="display: none;">
+                    <div class="container-input">
+                        <input type="text" class="list-input">
+                        <span class="list-span">List Name Here</span>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="main-content">
             <h1>main content</h1>
         </div>
