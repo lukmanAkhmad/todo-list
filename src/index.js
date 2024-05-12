@@ -1,4 +1,4 @@
 import './style.css';
-import { createContentSidebar } from './uiDashboard';
+import { screenControler } from './uiDashboard';
 
-createContentSidebar();
+screenControler();
