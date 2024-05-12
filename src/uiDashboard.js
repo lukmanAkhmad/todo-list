@@ -54,20 +54,26 @@ function createMainSidebar(){
     imgBtnMainSidebar.alt = 'plus sign';
     btnMainSidebar.appendChild(imgBtnMainSidebar);
 
+    btnMainSidebar.addEventListener('click', () => {
+        elemenInput.style.display = 'flex';
+    });
+
     return mainSidebar;
 }
 
 function createContainerList(){
-    const containerList = document.createElement('div');
+    const containerList = document.createElement('ul');
     containerList.classList.add('container-list');
-
     containerList.appendChild(createItemTodolist());
 
+    containerList.appendChild(elemenInput);
+
     return containerList;
+
 };
 
 function createItemTodolist(){
-    const itemTodolist = document.createElement('div');
+    const itemTodolist = document.createElement('li');
     itemTodolist.classList.add('item-todolist');
 
     const paraItemTodolist = document.createElement('p');
@@ -95,3 +101,7 @@ function createItemTodolist(){
 
     return itemTodolist;
 }
+
+    const elemenInput = document.createElement('input');
+    elemenInput.setAttribute('id','elemen-input');
+    elemenInput.setAttribute('type','text');
