@@ -98,7 +98,8 @@ body {
     font-size: 25px;
 }
 
-.icon-item-todolist {
+#icon-edit,
+#icon-trash {
     height: 30px;
     width: 30px;
 }
