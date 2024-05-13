@@ -13,7 +13,11 @@ function screenControler() {
     const formContainerList = document.querySelector('.form-container-list');
     const containerInput = document.querySelector('.container-input');
     const listInput = document.querySelector('.list-input');
-    const listSpan = document.querySelector('.list-span')
+    const listSpan = document.querySelector('.list-span');
+    const listForm = document.querySelector('#list-form');
+    const overlay = document.querySelector('.overlay');
+    const modal = document.querySelector('.modal');
+    const cancelModal = document.querySelector('.cancel');
 
     const renderList = () => {
         containerList.replaceChildren();
@@ -64,9 +68,15 @@ function screenControler() {
     })
 
     function editList() {
-        console.log('icon Edit was clicked!')
+        console.log('icon Edit was clicked!');
+        modal.style.display = 'flex';
         renderList()
     }
+
+    cancelModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+
 
     function removeList(index) {
         console.log('remove list was clicked!')
