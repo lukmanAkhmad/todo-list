@@ -33,13 +33,13 @@ function screenControler() {
             itemTodolist.appendChild(containerSvgItemTodolist);
 
             const imgEdit = document.createElement('img');
-            imgEdit.classList.add('icon-item-todolist');
+            imgEdit.setAttribute('id','icon-edit');
             imgEdit.src = editSign;
             imgEdit.alt = 'edit sign';
             containerSvgItemTodolist.appendChild(imgEdit);
 
             const imgTrash = document.createElement('img');
-            imgTrash.classList.add('icon-item-todolist');
+            imgTrash.setAttribute('id','icon-trash');
             imgTrash.src = trashSign;
             imgTrash.alt = 'trash sign';
             containerSvgItemTodolist.appendChild(imgTrash);
