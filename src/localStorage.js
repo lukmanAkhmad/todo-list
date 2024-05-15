@@ -6,5 +6,9 @@ function saveToLocalStorage(lists, selectedListId){
     localStorage.setItem(localStorageIdKey, JSON.stringify(selectedListId));
 };
 
+function getFromLocalStorage(){
+    const data = JSON.parse(localStorage.getItem(localStoregeKey));
+    return data;
+}
 
-export { saveToLocalStorage };
+export { saveToLocalStorage, getFromLocalStorage };
