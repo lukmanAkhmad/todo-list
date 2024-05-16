@@ -33,4 +33,12 @@ const createList = (name) => {
     saveToLocalStorage(lists)
 }
 
-export { lists, createList }
+const editListName = (listId, newName) => {
+    const list = getList(listId);
+    list.name = newName;
+    saveToLocalStorage(lists, listId);
+}
+
+const getList = (listId) => lists.find((list) => list.id === listId);
+
+export { lists, createList, editListName }
