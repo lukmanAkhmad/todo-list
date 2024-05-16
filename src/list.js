@@ -1,4 +1,6 @@
-const lists = [
+import { saveToLocalStorage, getFromLocalStorage } from './localStorage';
+
+const lists = getFromLocalStorage() || [
     {
         id: '1',
         name: 'Beli Buku'
@@ -22,12 +24,13 @@ const List = (name) => {
 };
 
 const createList = (name) => {
-    if(lists.find((lists) => lists.name === name)){
+    if (lists.find((lists) => lists.name === name)) {
         const list = List(name);
     } else {
         const list = List(name);
     }
     lists.push(list);
-} 
+    saveToLocalStorage(lists)
+}
 
 export { lists, createList }
