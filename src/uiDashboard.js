@@ -2,6 +2,7 @@ import editSign from '/assets/img/playlist-edit.svg';
 import trashSign from '/assets/img/trash-can-outline.svg';
 
 import * as listModule from './list';
+import { saveToLocalStorage, getIdFromLocalStorage } from './localStorage';
 
 
 function screenControler() {
