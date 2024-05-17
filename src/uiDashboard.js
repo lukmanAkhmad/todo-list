@@ -38,14 +38,14 @@ function screenControler() {
             itemTodolist.appendChild(containerSvgItemTodolist);
 
             const imgEdit = document.createElement('img');
-            imgEdit.setAttribute('id', 'icon-edit');
+            imgEdit.classList.add('icon-edit');
             imgEdit.src = editSign;
             imgEdit.alt = 'edit sign';
             imgEdit.addEventListener('click', editList);
             containerSvgItemTodolist.appendChild(imgEdit);
 
             const imgTrash = document.createElement('img');
-            imgTrash.setAttribute('id', 'icon-trash');
+            imgTrash.classList.add('icon-trash');
             imgTrash.src = trashSign;
             imgTrash.alt = 'trash sign';
             imgTrash.addEventListener('click', () => {
@@ -64,9 +64,19 @@ function screenControler() {
     formContainerList.addEventListener('submit', (e) => {
         e.preventDefault();
         const valueListInput = listInput.value;
-        listModule.createList(valueListInput)
+        listModule.createList(valueListInput);
+        toggleFormDisplay();
+        listInput.value = '';
         renderList();
-    })
+    });
+
+    function toggleFormDisplay(){
+        if(formContainerList.style.display == 'none'){
+            formContainerList.style.display = 'flex'
+        } else {
+            formContainerList.style.display = 'none'
+        }
+    }
 
     function editList() {
         console.log('icon Edit was clicked!');
