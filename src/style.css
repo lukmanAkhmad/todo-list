@@ -98,10 +98,21 @@ body {
     font-size: 25px;
 }
 
-#icon-edit,
-#icon-trash {
+.icon-edit,
+.icon-trash {
     height: 30px;
     width: 30px;
+}
+
+.form-container-list{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid honeydew;
+    border-radius: 9px;
+    padding: 15px;
+    margin-bottom: 21px;
+    width: 350px;
 }
 
 /* modal */
