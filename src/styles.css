@@ -9,6 +9,7 @@ body {
 }
 
 #div-container {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 2fr 2fr;
@@ -18,6 +19,16 @@ body {
 #sidebar {
     background-color: dodgerblue;
     grid-row: 1 / 4;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr;
+}
+
+.container-button-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 51px;
 }
 
 #header-content {

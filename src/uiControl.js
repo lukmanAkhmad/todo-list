@@ -11,8 +11,24 @@ function renderScreen() {
 function renderSidebar(parentNode) {
     const sidebar = document.createElement("div");
     sidebar.setAttribute("id", "sidebar")
-    sidebar.textContent = "Sidebar";
-    sidebarController(sidebar);
+    const headerSidebar = document.createElement("div");
+    headerSidebar.classList.add("header-sidebar");
+    headerSidebar.textContent = "Header Sidebar";
+    const containerBtnSidebar = document.createElement("div");
+    containerBtnSidebar.classList.add("container-button-sidebar");
+    const paraSidebar = document.createElement("p");
+    paraSidebar.classList.add("p-sidebar");
+    paraSidebar.textContent = "My Lists";
+    const containerTodolist = document.createElement("div");
+    containerTodolist.classList.add("container-todolist");
+    containerTodolist.textContent = "Todo list Container";
+
+    containerBtnSidebar.appendChild(paraSidebar);
+    sidebarController(containerBtnSidebar);
+
+    sidebar.appendChild(headerSidebar);
+    sidebar.appendChild(containerBtnSidebar);
+    sidebar.appendChild(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
