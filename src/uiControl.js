@@ -1,8 +1,11 @@
 function renderScreen() {
     const body = document.querySelector("body");
-    renderSidebar(body);
-    renderHeaderContent(body);
-    renderBodyContent(body);
+    const divContainer = document.createElement("div");
+    divContainer.setAttribute("id", "div-container");
+    body.appendChild(divContainer);
+    renderSidebar(divContainer);
+    renderHeaderContent(divContainer);
+    renderBodyContent(divContainer);
 };
 
 function renderSidebar(parentNode) {
@@ -26,17 +29,17 @@ function sidebarController(parentNode) {
     parentNode.appendChild(sidebarBtn);
 };
 
-function renderHeaderContent(parentNode){
+function renderHeaderContent(parentNode) {
     const headerContent = document.createElement("div");
-    headerContent.setAttribute("id","header-content");
+    headerContent.setAttribute("id", "header-content");
     headerContent.textContent = "Header Content";
 
     parentNode.appendChild(headerContent);
 };
 
-function renderBodyContent(parentNode){
+function renderBodyContent(parentNode) {
     const bodyContent = document.createElement("div");
-    bodyContent.setAttribute("id","body-content");
+    bodyContent.setAttribute("id", "body-content");
     bodyContent.textContent = "Body Content";
 
     parentNode.appendChild(bodyContent);
