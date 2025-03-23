@@ -2,6 +2,7 @@ function renderScreen() {
     const body = document.querySelector("body");
     renderSidebar(body);
     renderHeaderContent(body);
+    renderBodyContent(body);
 };
 
 function renderSidebar(parentNode) {
@@ -32,4 +33,12 @@ function renderHeaderContent(parentNode){
 
     parentNode.appendChild(headerContent);
 };
+
+function renderBodyContent(parentNode){
+    const bodyContent = document.createElement("div");
+    bodyContent.setAttribute("id","body-content");
+    bodyContent.textContent = "Body Content";
+
+    parentNode.appendChild(bodyContent);
+}
 export { renderScreen };
