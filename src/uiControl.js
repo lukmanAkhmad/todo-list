@@ -19,30 +19,56 @@ function renderSidebar(parentNode) {
     const paraSidebar = document.createElement("p");
     paraSidebar.classList.add("p-sidebar");
     paraSidebar.textContent = "My Lists";
+
+    const sidebarBtn = document.createElement("button");
+    sidebarBtn.textContent = "Sidebar Button";
+    sidebarBtn.addEventListener("click", () => {
+        const dialogElement = document.querySelector("#dialog");
+        dialogElement.showModal();
+    });
+
     const containerTodolist = document.createElement("div");
     containerTodolist.classList.add("container-todolist");
     containerTodolist.textContent = "Todo list Container";
 
     containerBtnSidebar.appendChild(paraSidebar);
-    sidebarController(containerBtnSidebar);
+    containerBtnSidebar.appendChild(sidebarBtn);
 
     sidebar.appendChild(headerSidebar);
     sidebar.appendChild(containerBtnSidebar);
+    renderDialog(sidebar)
     sidebar.appendChild(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
 
-function sidebarController(parentNode) {
-    const sidebarBtn = document.createElement("button");
-    sidebarBtn.textContent = "Sidebar Button";
-    sidebarBtn.addEventListener("click", renderDialog);
+function renderDialog(parentNode) {
+    const dialog = document.createElement("dialog");
+    dialog.setAttribute("id", "dialog");
+    const containerForm = document.createElement("div");
+    containerForm.setAttribute("id", "container-form");
+    const form = document.createElement("form");
+    form.setAttribute("action", "");
+    const inputSection = document.createElement("section");
+    inputSection.classList.add("input-section");
+    const formDiv = document.createElement("div");
+    formDiv.classList.add("form-div");
+    const label = document.createElement("label");
+    label.classList.add("label-list-name");
+    label.setAttribute("for", "list-name");
+    label.textContent = "List Name";
+    const input = document.createElement("input");
+    input.setAttribute("id", "list-name");
+    input.setAttribute("type", "text");
+    input.setAttribute("name", "list-name");
 
-    function renderDialog() {
-        console.log("button onclick")
-    };
-
-    parentNode.appendChild(sidebarBtn);
+    formDiv.appendChild(input);
+    formDiv.appendChild(label);
+    inputSection.appendChild(formDiv)
+    form.appendChild(inputSection);
+    containerForm.appendChild(form);
+    dialog.appendChild(containerForm);
+    parentNode.appendChild(dialog);
 };
 
 function renderHeaderContent(parentNode) {
