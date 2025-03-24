@@ -62,10 +62,30 @@ function renderDialog(parentNode) {
     input.setAttribute("type", "text");
     input.setAttribute("name", "list-name");
 
-    formDiv.appendChild(input);
+    const btnSection = document.createElement("section");
+    btnSection.classList.add("btn-section");
+    const btnCloseModal = document.createElement("button");
+    btnCloseModal.setAttribute("id", "close-modal");
+    btnCloseModal.setAttribute("type", "button");
+    btnCloseModal.textContent = "Cancel";
+    const btnCreateList = document.createElement("button");
+    btnCreateList.setAttribute("id", "create-list");
+    btnCreateList.setAttribute("type", "submit");
+    btnCreateList.textContent = "Create List";
+
+    btnCloseModal.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dialogElement = document.querySelector("#dialog");
+        dialogElement.close();
+    })
+
     formDiv.appendChild(label);
+    formDiv.appendChild(input);
     inputSection.appendChild(formDiv)
     form.appendChild(inputSection);
+    btnSection.appendChild(btnCloseModal);
+    btnSection.appendChild(btnCreateList);
+    form.appendChild(btnSection);
     containerForm.appendChild(form);
     dialog.appendChild(containerForm);
     parentNode.appendChild(dialog);
@@ -87,3 +107,6 @@ function renderBodyContent(parentNode) {
     parentNode.appendChild(bodyContent);
 }
 export { renderScreen };
+
+// cancel
+// create list
