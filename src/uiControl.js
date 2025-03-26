@@ -1,3 +1,5 @@
+import { createList } from "./list";
+
 function renderScreen() {
     const body = document.querySelector("body");
     const divContainer = document.createElement("div");
@@ -38,6 +40,7 @@ function renderSidebar(parentNode) {
     sidebar.appendChild(containerBtnSidebar);
     renderDialog(sidebar)
     sidebar.appendChild(containerTodolist);
+    // renderCardList(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
@@ -77,7 +80,14 @@ function renderDialog(parentNode) {
         e.preventDefault();
         const dialogElement = document.querySelector("#dialog");
         dialogElement.close();
-    })
+    });
+
+    btnCreateList.addEventListener("click", (e) => {
+        e.preventDefault();
+        const listName = document.querySelector("#list-name").value;
+        createList(listName)
+
+    });
 
     formDiv.appendChild(label);
     formDiv.appendChild(input);
@@ -90,6 +100,20 @@ function renderDialog(parentNode) {
     dialog.appendChild(containerForm);
     parentNode.appendChild(dialog);
 };
+
+// function renderCardList(parentNode) {
+//     lists.getLists().forEach((val) => {
+//         const card = document.createElement("div");
+//         card.classList.add("cards");
+//         const cardListName = document.createElement("p");
+//         cardListName.classList.add("card-list-name");
+
+//         cardListName.textContent = val.name;
+
+//         card.appendChild(cardListName);
+//         parentNode.appendChild(card);
+//     });
+// };
 
 function renderHeaderContent(parentNode) {
     const headerContent = document.createElement("div");
@@ -108,5 +132,4 @@ function renderBodyContent(parentNode) {
 }
 export { renderScreen };
 
-// cancel
-// create list
+// create List
