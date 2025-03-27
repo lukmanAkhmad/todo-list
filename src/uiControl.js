@@ -40,6 +40,7 @@ function renderSidebar(parentNode) {
     sidebar.appendChild(containerBtnSidebar);
     renderDialog(sidebar)
     sidebar.appendChild(containerTodolist);
+    renderCardList(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
@@ -132,3 +133,5 @@ function renderBodyContent(parentNode) {
     parentNode.appendChild(bodyContent);
 }
 export { renderScreen };
+
+// nyimpen data ke localStorege
