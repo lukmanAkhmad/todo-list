@@ -111,8 +111,19 @@ function renderCardList(parentNode) {
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.name;
+        const btnEditList = document.createElement("button");
+        btnEditList.classList.add("btn-edit-list");
+        btnEditList.setAttribute("type", "submit");
+        btnEditList.textContent = "Edit";
+
+        const btnDeleteList = document.createElement("button");
+        btnDeleteList.classList.add("btn-delete-list");
+        btnDeleteList.setAttribute("type", "button");
+        btnDeleteList.textContent = "Delete";
 
         card.appendChild(cardListName);
+        card.appendChild(btnEditList);
+        card.appendChild(btnDeleteList);
         parentNode.appendChild(card);
     });
 };
@@ -134,4 +145,4 @@ function renderBodyContent(parentNode) {
 }
 export { renderScreen };
 
-// nyimpen data ke localStorege
+// edit dan hapus data lists
