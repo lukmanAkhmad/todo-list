@@ -1,5 +1,5 @@
 const localStorageKey = "lists";
-const localStorageIdKey = "listsId";
+const localStorageIdKey = "listId";
 
 function saveToLocalStorage(lists, selectedListId) {
     localStorage.setItem(localStorageKey, JSON.stringify(lists));
