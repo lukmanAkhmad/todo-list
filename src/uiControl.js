@@ -1,4 +1,4 @@
-import { createList } from "./list";
+import { createList, lists } from "./list";
 
 function renderScreen() {
     const body = document.querySelector("body");
@@ -40,7 +40,6 @@ function renderSidebar(parentNode) {
     sidebar.appendChild(containerBtnSidebar);
     renderDialog(sidebar)
     sidebar.appendChild(containerTodolist);
-    // renderCardList(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
@@ -85,7 +84,10 @@ function renderDialog(parentNode) {
     btnCreateList.addEventListener("click", (e) => {
         e.preventDefault();
         const listName = document.querySelector("#list-name").value;
+        const containerTodolist = document.querySelector(".container-todolist");
+        containerTodolist.textContent = "";
         createList(listName)
+        renderCardList(containerTodolist);
 
     });
 
@@ -101,19 +103,18 @@ function renderDialog(parentNode) {
     parentNode.appendChild(dialog);
 };
 
-// function renderCardList(parentNode) {
-//     lists.getLists().forEach((val) => {
-//         const card = document.createElement("div");
-//         card.classList.add("cards");
-//         const cardListName = document.createElement("p");
-//         cardListName.classList.add("card-list-name");
+function renderCardList(parentNode) {
+    lists.forEach((val) => {
+        const card = document.createElement("div");
+        card.classList.add("cards");
+        const cardListName = document.createElement("p");
+        cardListName.classList.add("card-list-name");
+        cardListName.textContent = val.name;
 
-//         cardListName.textContent = val.name;
-
-//         card.appendChild(cardListName);
-//         parentNode.appendChild(card);
-//     });
-// };
+        card.appendChild(cardListName);
+        parentNode.appendChild(card);
+    });
+};
 
 function renderHeaderContent(parentNode) {
     const headerContent = document.createElement("div");
@@ -131,5 +132,3 @@ function renderBodyContent(parentNode) {
     parentNode.appendChild(bodyContent);
 }
 export { renderScreen };
-
-// create List

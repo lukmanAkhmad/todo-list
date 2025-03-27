@@ -15,6 +15,6 @@ const createList = (names) => {
     const list = List(names);
     lists.push(list);
     console.table(lists);
-}
+};
 
-export { createList };
+export { createList, lists };
