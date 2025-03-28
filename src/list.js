@@ -22,10 +22,18 @@ const createList = (names) => {
 
 const getListIndex = (listId) => lists.findIndex((list) => list.id === listId);
 
+const getList = (listId) => lists.find((list) => list.id === listId);
+
 const deleteList = (listId) => {
     const listIndex = getListIndex(listId);
     lists.splice(listIndex, 1);
     saveToLocalStorage(lists, listId);
 };
 
-export { lists, createList, deleteList };
+const editList = (listId, newName) => {
+    const list = getList(listId);
+    list.name = newName;
+    saveToLocalStorage(lists, listId);
+}
+
+export { lists, createList, deleteList, editList };

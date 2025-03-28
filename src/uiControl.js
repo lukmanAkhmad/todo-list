@@ -1,4 +1,4 @@
-import { lists, createList, deleteList } from "./list";
+import { lists, createList, deleteList, editList } from "./list";
 import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
@@ -88,9 +88,8 @@ function renderDialog(parentNode) {
         const listName = document.querySelector("#list-name").value;
         const containerTodolist = document.querySelector(".container-todolist");
         containerTodolist.textContent = "";
-        createList(listName)
+        createList(listName);
         createCardList(containerTodolist);
-
     });
 
     formDiv.appendChild(label);
@@ -112,17 +111,25 @@ function createCardList(parentNode) {
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.name;
+
+        const currentListId = val.id;
+
         const btnEditList = document.createElement("button");
         btnEditList.classList.add("btn-edit-list");
         btnEditList.setAttribute("type", "submit");
         btnEditList.textContent = "Edit";
-
-        const currentListId = val.id;
-
         const btnDeleteList = document.createElement("button");
         btnDeleteList.classList.add("btn-delete-list");
         btnDeleteList.setAttribute("type", "button");
         btnDeleteList.textContent = "Delete";
+
+        btnEditList.addEventListener("click", (e) => {
+            e.preventDefault();
+            renderDialogEditList(parentNode, currentListId)
+            const dialogList = document.querySelector("#dialog-edit-list");
+            dialogList.showModal();
+        });
+
         btnDeleteList.addEventListener("click", () => {
             console.log("Button Delete List Onclick");
             deleteList(currentListId);
@@ -135,6 +142,64 @@ function createCardList(parentNode) {
         card.appendChild(btnDeleteList);
         parentNode.appendChild(card);
     });
+};
+
+function renderDialogEditList(parentNode, listId) {
+    const dialogList = document.createElement("dialog");
+    dialogList.setAttribute("id", "dialog-edit-list");
+    const containerFormList = document.createElement("div");
+    containerFormList.setAttribute("id", "container-form-edit-list");
+    const formList = document.createElement("form");
+    formList.setAttribute("action", "");
+    const inputSectionList = document.createElement("section");
+    inputSectionList.classList.add("input-section-edit-list");
+    const formDivList = document.createElement("div");
+    formDivList.classList.add("form-div-edit-list");
+    const labelList = document.createElement("label");
+    labelList.classList.add("label-list-name-edit-list");
+    labelList.setAttribute("for", "list-name");
+    labelList.textContent = "List Name";
+    const inputList = document.createElement("input");
+    inputList.setAttribute("id", "list-name-edit-list");
+    inputList.setAttribute("type", "text");
+    inputList.setAttribute("name", "list-name");
+
+    const btnSectionList = document.createElement("section");
+    btnSectionList.classList.add("btn-section-edit-list");
+    const btnCloseModalList = document.createElement("button");
+    btnCloseModalList.setAttribute("id", "close-modal-edit-list");
+    btnCloseModalList.setAttribute("type", "button");
+    btnCloseModalList.textContent = "Cancel";
+    const btnRenameList = document.createElement("button");
+    btnRenameList.setAttribute("id", "create-list-edit-list");
+    btnRenameList.setAttribute("type", "submit");
+    btnRenameList.textContent = "Rename";
+
+    btnCloseModalList.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dialogListElement = document.querySelector("#dialog-edit-list");
+        dialogListElement.close();
+    });
+
+    btnRenameList.addEventListener("click", (e) => {
+        e.preventDefault();
+        const listNameEditList = document.querySelector("#list-name-edit-list").value;
+        const containerTodolist = document.querySelector(".container-todolist");
+        containerTodolist.textContent = "";
+        editList(listId, listNameEditList);
+        createCardList(containerTodolist);
+    });
+
+    formDivList.appendChild(labelList);
+    formDivList.appendChild(inputList);
+    inputSectionList.appendChild(formDivList)
+    formList.appendChild(inputSectionList);
+    btnSectionList.appendChild(btnCloseModalList);
+    btnSectionList.appendChild(btnRenameList);
+    formList.appendChild(btnSectionList);
+    containerFormList.appendChild(formList);
+    dialogList.appendChild(containerFormList);
+    parentNode.appendChild(dialogList);
 };
 
 function renderCardList() {
@@ -158,6 +223,5 @@ function renderBodyContent(parentNode) {
 
     parentNode.appendChild(bodyContent);
 }
-export { renderScreen };
 
-// edit data lists
+export { renderScreen };
