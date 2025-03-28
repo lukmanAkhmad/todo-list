@@ -1,4 +1,5 @@
-import { createList, lists } from "./list";
+import { lists, createList, deleteList } from "./list";
+import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
     const body = document.querySelector("body");
@@ -40,7 +41,7 @@ function renderSidebar(parentNode) {
     sidebar.appendChild(containerBtnSidebar);
     renderDialog(sidebar)
     sidebar.appendChild(containerTodolist);
-    renderCardList(containerTodolist);
+    createCardList(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
@@ -88,7 +89,7 @@ function renderDialog(parentNode) {
         const containerTodolist = document.querySelector(".container-todolist");
         containerTodolist.textContent = "";
         createList(listName)
-        renderCardList(containerTodolist);
+        createCardList(containerTodolist);
 
     });
 
@@ -104,7 +105,7 @@ function renderDialog(parentNode) {
     parentNode.appendChild(dialog);
 };
 
-function renderCardList(parentNode) {
+function createCardList(parentNode) {
     lists.forEach((val) => {
         const card = document.createElement("div");
         card.classList.add("cards");
@@ -116,10 +117,18 @@ function renderCardList(parentNode) {
         btnEditList.setAttribute("type", "submit");
         btnEditList.textContent = "Edit";
 
+        const currentListId = val.id;
+
         const btnDeleteList = document.createElement("button");
         btnDeleteList.classList.add("btn-delete-list");
         btnDeleteList.setAttribute("type", "button");
         btnDeleteList.textContent = "Delete";
+        btnDeleteList.addEventListener("click", () => {
+            console.log("Button Delete List Onclick");
+            deleteList(currentListId);
+            renderCardList();
+            console.table(lists);
+        });
 
         card.appendChild(cardListName);
         card.appendChild(btnEditList);
@@ -127,6 +136,12 @@ function renderCardList(parentNode) {
         parentNode.appendChild(card);
     });
 };
+
+function renderCardList() {
+    const containerTodolist = document.querySelector(".container-todolist");
+    containerTodolist.textContent = "";
+    createCardList(containerTodolist);
+}
 
 function renderHeaderContent(parentNode) {
     const headerContent = document.createElement("div");
@@ -145,4 +160,4 @@ function renderBodyContent(parentNode) {
 }
 export { renderScreen };
 
-// edit dan hapus data lists
+// edit data lists

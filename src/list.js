@@ -20,4 +20,12 @@ const createList = (names) => {
     console.table(lists);
 };
 
-export { createList, lists };
+const getListIndex = (listId) => lists.findIndex((list) => list.id === listId);
+
+const deleteList = (listId) => {
+    const listIndex = getListIndex(listId);
+    lists.splice(listIndex, 1);
+    saveToLocalStorage(lists, listId);
+};
+
+export { lists, createList, deleteList };
