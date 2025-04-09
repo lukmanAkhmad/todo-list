@@ -34,6 +34,6 @@ const editList = (listId, newName) => {
     const list = getList(listId);
     list.name = newName;
     saveToLocalStorage(lists, listId);
-}
+};
 
-export { lists, createList, deleteList, editList };
+export { lists, createList, deleteList, editList, getList, getListIndex };

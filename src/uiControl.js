@@ -1,4 +1,4 @@
-import { lists, createList, deleteList, editList } from "./list";
+import { lists, createList, deleteList, editList, getList } from "./list";
 import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
@@ -134,7 +134,16 @@ function createCardList(parentNode) {
             console.log("Button Delete List Onclick");
             deleteList(currentListId);
             renderCardList();
+            const headerContainer = document.querySelector("#header-content");
+            headerContainer.textContent = "";
             console.table(lists);
+        });
+
+        card.addEventListener("click", () => {
+            console.log("card on click");
+            console.log(currentListId);
+            let findList = getList(currentListId);
+            createHeaderContent(findList);
         });
 
         card.appendChild(cardListName);
@@ -209,11 +218,32 @@ function renderCardList() {
 }
 
 function renderHeaderContent(parentNode) {
-    const headerContent = document.createElement("div");
-    headerContent.setAttribute("id", "header-content");
-    headerContent.textContent = "Header Content";
+    const headerContainer = document.createElement("div");
+    headerContainer.setAttribute("id", "header-content");
+    headerContainer.textContent = "Header Content";
 
-    parentNode.appendChild(headerContent);
+    parentNode.appendChild(headerContainer);
+};
+
+function createHeaderContent(list) {
+    if (list === undefined) return;
+    const headerContainer = document.querySelector("#header-content");
+    headerContainer.textContent = "";
+    const divListName = document.createElement("div");
+    divListName.setAttribute("id", "div-list-name");
+    divListName.textContent = list.name;
+    const btnAddItem = document.createElement("button");
+    btnAddItem.setAttribute("id", "btn-add-item");
+    btnAddItem.setAttribute("type", "submit");
+    btnAddItem.textContent = "Add Item";
+
+    btnAddItem.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("btn add item onclick")
+    });
+
+    headerContainer.appendChild(divListName);
+    headerContainer.appendChild(btnAddItem);
 };
 
 function renderBodyContent(parentNode) {
@@ -225,3 +255,5 @@ function renderBodyContent(parentNode) {
 }
 
 export { renderScreen };
+
+// Bikin button add item berfungsi
