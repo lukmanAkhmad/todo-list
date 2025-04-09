@@ -1,4 +1,5 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
+import { createTask } from "./task";
 import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
@@ -237,13 +238,76 @@ function createHeaderContent(list) {
     btnAddItem.setAttribute("type", "submit");
     btnAddItem.textContent = "Add Item";
 
+    const currentListId = list.id;
+
     btnAddItem.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("btn add item onclick")
+        console.log(`btn add item onclick dengan id = ${currentListId}`);
+        renderDialogAddItem(headerContainer, currentListId);
+        const dialogAddItem = document.querySelector("#dialog-add-item");
+        dialogAddItem.showModal();
     });
 
     headerContainer.appendChild(divListName);
     headerContainer.appendChild(btnAddItem);
+};
+
+function renderDialogAddItem(parentNode, listId) {
+    const dialogAddItem = document.createElement("dialog");
+    dialogAddItem.setAttribute("id", "dialog-add-item");
+    const containerFormAddItem = document.createElement("div");
+    containerFormAddItem.setAttribute("id", "container-form-add-item");
+    const formAddItem = document.createElement("form");
+    formAddItem.setAttribute("action", "");
+    const inputSectionAddItem = document.createElement("section");
+    inputSectionAddItem.classList.add("input-section-add-item");
+    const formDivAddItem = document.createElement("div");
+    formDivAddItem.classList.add("form-div-add-item");
+    const titleAddItem = document.createElement("label");
+    titleAddItem.classList.add("label-title-add-item");
+    titleAddItem.setAttribute("for", "title");
+    titleAddItem.textContent = "Title";
+    const inputAddItem = document.createElement("input");
+    inputAddItem.setAttribute("id", "title-add-item");
+    inputAddItem.setAttribute("type", "text");
+    inputAddItem.setAttribute("name", "title");
+
+    const btnSectionAddItem = document.createElement("section");
+    btnSectionAddItem.classList.add("btn-section-add-item");
+    const btnCloseModalAddItem = document.createElement("button");
+    btnCloseModalAddItem.setAttribute("id", "close-modal-add-item");
+    btnCloseModalAddItem.setAttribute("type", "button");
+    btnCloseModalAddItem.textContent = "Cancel";
+    const btnAddTask = document.createElement("button");
+    btnAddTask.setAttribute("id", "add-task");
+    btnAddTask.setAttribute("type", "submit");
+    btnAddTask.textContent = "Add Task";
+
+    btnCloseModalAddItem.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dialogAddItemElement = document.querySelector("#dialog-add-item");
+        dialogAddItemElement.close();
+    });
+
+    btnAddTask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const titleAddTask = document.querySelector("#title-add-item").value;
+        // const containerTodolist = document.querySelector(".container-todolist");
+        // containerTodolist.textContent = "";
+        createTask(listId,titleAddTask);
+        
+    });
+
+    formDivAddItem.appendChild(titleAddItem);
+    formDivAddItem.appendChild(inputAddItem);
+    inputSectionAddItem.appendChild(formDivAddItem)
+    formAddItem.appendChild(inputSectionAddItem);
+    btnSectionAddItem.appendChild(btnCloseModalAddItem);
+    btnSectionAddItem.appendChild(btnAddTask);
+    formAddItem.appendChild(btnSectionAddItem);
+    containerFormAddItem.appendChild(formAddItem);
+    dialogAddItem.appendChild(containerFormAddItem);
+    parentNode.appendChild(dialogAddItem);
 };
 
 function renderBodyContent(parentNode) {
@@ -255,5 +319,3 @@ function renderBodyContent(parentNode) {
 }
 
 export { renderScreen };
-
-// Bikin button add item berfungsi
