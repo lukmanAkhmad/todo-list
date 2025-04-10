@@ -145,6 +145,7 @@ function createCardList(parentNode) {
             console.log(currentListId);
             let findList = getList(currentListId);
             createHeaderContent(findList);
+            createCardTaskItem(findList);
         });
 
         card.appendChild(cardListName);
@@ -194,10 +195,11 @@ function renderDialogEditList(parentNode, listId) {
     btnRenameList.addEventListener("click", (e) => {
         e.preventDefault();
         const listNameEditList = document.querySelector("#list-name-edit-list").value;
-        const containerTodolist = document.querySelector(".container-todolist");
-        containerTodolist.textContent = "";
+        const containerTodolist = document.querySelector(".container-todolist");    // ini
+        containerTodolist.textContent = ""; // ini
         editList(listId, listNameEditList);
-        createCardList(containerTodolist);
+        createCardList(containerTodolist);  // dan ini hapus dan gunakan renderCardList();
+        // renderCardList();
     });
 
     formDivList.appendChild(labelList);
@@ -292,8 +294,6 @@ function renderDialogAddItem(parentNode, listId) {
     btnAddTask.addEventListener("click", (e) => {
         e.preventDefault();
         const titleAddTask = document.querySelector("#title-add-item").value;
-        // const containerTodolist = document.querySelector(".container-todolist");
-        // containerTodolist.textContent = "";
         createTask(listId,titleAddTask);
         
     });
@@ -316,6 +316,34 @@ function renderBodyContent(parentNode) {
     bodyContent.textContent = "Body Content";
 
     parentNode.appendChild(bodyContent);
-}
+};
+
+function createCardTaskItem(list) {
+    if(list === undefined) return;
+    const bodyContent = document.querySelector("#body-content");
+    bodyContent.textContent = "";
+
+    let taskItem = list.tasks;
+    taskItem.forEach((val) => {
+        const card = document.createElement("div");
+        card.classList.add("cards");
+        const cardListName = document.createElement("p");
+        cardListName.classList.add("card-list-name");
+        cardListName.textContent = val.name;
+
+        const currentListId = val.id;
+        // console.log(`task id = ${currentListId}`);
+        card.addEventListener("click", () => {
+            console.log("card taskList on click");
+            console.log(currentListId);
+            
+        });
+
+        card.appendChild(cardListName);
+        bodyContent.appendChild(card);
+    });
+};
 
 export { renderScreen };
+
+// munculkan task ketika card list di klik
