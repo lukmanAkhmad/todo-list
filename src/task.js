@@ -16,9 +16,20 @@ const createTask = (listId, names) => {
     const task = Task(names);
     const list = getList(listId);
     list.tasks.push(task);
+    saveToLocalStorage(lists, listId);
+};
+
+const getTaskIndex = (taskItem, taskId) => taskItem.findIndex((task) => task.id === taskId);
+
+const deleteTask = (list, taskId) => {
+    const taskItem = list.tasks;
+    const listId = list.id;
+    console.log("test");
+    const taskIndex = getTaskIndex(taskItem, taskId);
+    taskItem.splice(taskIndex, 1);
     saveToLocalStorage(lists,listId);
 };
 
-export { createTask };
+export { createTask, deleteTask };
 
-// buat task lalu simpan di lists.task
+// buat function untuk mengedit task

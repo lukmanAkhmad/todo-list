@@ -1,5 +1,5 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
-import { createTask } from "./task";
+import { createTask, deleteTask } from "./task";
 import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
@@ -142,7 +142,7 @@ function createCardList(parentNode) {
 
         card.addEventListener("click", () => {
             console.log("card on click");
-            console.log(currentListId);
+            console.log(`id list = ${currentListId}`);
             let findList = getList(currentListId);
             createHeaderContent(findList);
             createCardTaskItem(findList);
@@ -294,8 +294,8 @@ function renderDialogAddItem(parentNode, listId) {
     btnAddTask.addEventListener("click", (e) => {
         e.preventDefault();
         const titleAddTask = document.querySelector("#title-add-item").value;
-        createTask(listId,titleAddTask);
-        
+        createTask(listId, titleAddTask);
+
     });
 
     formDivAddItem.appendChild(titleAddItem);
@@ -319,7 +319,7 @@ function renderBodyContent(parentNode) {
 };
 
 function createCardTaskItem(list) {
-    if(list === undefined) return;
+    if (list === undefined) return;
     const bodyContent = document.querySelector("#body-content");
     bodyContent.textContent = "";
 
@@ -331,19 +331,34 @@ function createCardTaskItem(list) {
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.name;
 
-        const currentListId = val.id;
-        // console.log(`task id = ${currentListId}`);
+        const currentTaskItemId = val.id;
+
+        const btnDeleteTaskItem = document.createElement("button");
+        btnDeleteTaskItem.classList.add("btn-delete-list");
+        btnDeleteTaskItem.setAttribute("type", "button");
+        btnDeleteTaskItem.textContent = "Delete";
+
+        btnDeleteTaskItem.addEventListener("click", () => {
+            deleteTask(list,currentTaskItemId);
+            renderCardTaskItem(list);
+        });
+
         card.addEventListener("click", () => {
             console.log("card taskList on click");
-            console.log(currentListId);
-            
+            console.log(`id task = ${currentTaskItemId}`);
+
         });
 
         card.appendChild(cardListName);
+        card.appendChild(btnDeleteTaskItem);
         bodyContent.appendChild(card);
     });
 };
 
+function renderCardTaskItem(list){
+    createCardTaskItem(list);
+}
+
 export { renderScreen };
 
-// munculkan task ketika card list di klik
+// edit task item
