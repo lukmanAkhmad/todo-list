@@ -1,5 +1,5 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
-import { createTask, deleteTask } from "./task";
+import { createTask, deleteTask, editTask } from "./task";
 import { saveToLocalStorage } from "./localStorage";
 
 function renderScreen() {
@@ -117,7 +117,7 @@ function createCardList(parentNode) {
 
         const btnEditList = document.createElement("button");
         btnEditList.classList.add("btn-edit-list");
-        btnEditList.setAttribute("type", "submit");
+        btnEditList.setAttribute("type", "submit"); // ganti submit jadi button
         btnEditList.textContent = "Edit";
         const btnDeleteList = document.createElement("button");
         btnDeleteList.classList.add("btn-delete-list");
@@ -182,7 +182,7 @@ function renderDialogEditList(parentNode, listId) {
     btnCloseModalList.setAttribute("type", "button");
     btnCloseModalList.textContent = "Cancel";
     const btnRenameList = document.createElement("button");
-    btnRenameList.setAttribute("id", "create-list-edit-list");
+    btnRenameList.setAttribute("id", "create-list-edit-list"); // ganti nama id menjadi btn-rename-list 
     btnRenameList.setAttribute("type", "submit");
     btnRenameList.textContent = "Rename";
 
@@ -333,13 +333,25 @@ function createCardTaskItem(list) {
 
         const currentTaskItemId = val.id;
 
+        const btnEditTaskItem = document.createElement("button");
+        btnEditTaskItem.classList.add("btn-edit-task-item");
+        btnEditTaskItem.setAttribute("type", "button");
+        btnEditTaskItem.textContent = "Edit";
         const btnDeleteTaskItem = document.createElement("button");
         btnDeleteTaskItem.classList.add("btn-delete-list");
         btnDeleteTaskItem.setAttribute("type", "button");
         btnDeleteTaskItem.textContent = "Delete";
 
+        btnEditTaskItem.addEventListener("click", (e) => {
+            console.log("btn edit task onclick");
+            e.preventDefault();
+            renderDialogEditTask(bodyContent, list, currentTaskItemId);
+            const dialogList = document.querySelector("#dialog-edit-task");
+            dialogList.showModal();
+        });
+
         btnDeleteTaskItem.addEventListener("click", () => {
-            deleteTask(list,currentTaskItemId);
+            deleteTask(list, currentTaskItemId);
             renderCardTaskItem(list);
         });
 
@@ -350,15 +362,72 @@ function createCardTaskItem(list) {
         });
 
         card.appendChild(cardListName);
+        card.appendChild(btnEditTaskItem);
         card.appendChild(btnDeleteTaskItem);
         bodyContent.appendChild(card);
     });
 };
 
-function renderCardTaskItem(list){
+function renderDialogEditTask(parentNode, list, taskId) {
+    const dialogTask = document.createElement("dialog");
+    dialogTask.setAttribute("id", "dialog-edit-task");
+    const containerFormTask = document.createElement("div");
+    containerFormTask.setAttribute("id", "container-form-edit-task");
+    const formTask = document.createElement("form");
+    formTask.setAttribute("action", "");
+    const inputSectionTask = document.createElement("section");
+    inputSectionTask.classList.add("input-section-edit-task");
+    const formDivTask = document.createElement("div");
+    formDivTask.classList.add("form-div-edit-task");
+    const labelTask = document.createElement("label");
+    labelTask.classList.add("label-task-name-edit-task");
+    labelTask.setAttribute("for", "task-name");
+    labelTask.textContent = "List Name";
+    const inputTask = document.createElement("input");
+    inputTask.setAttribute("id", "task-name-edit-task");
+    inputTask.setAttribute("type", "text");
+    inputTask.setAttribute("name", "task-name");
+
+    const btnSectionTask = document.createElement("section");
+    btnSectionTask.classList.add("btn-section-edit-task");
+    const btnCloseModalTask = document.createElement("button");
+    btnCloseModalTask.setAttribute("id", "close-modal-edit-task");
+    btnCloseModalTask.setAttribute("type", "button");
+    btnCloseModalTask.textContent = "Cancel";
+    const btnRenameTask = document.createElement("button");
+    btnRenameTask.setAttribute("id", "btn-rename-task");
+    btnRenameTask.setAttribute("type", "submit");
+    btnRenameTask.textContent = "Rename";
+
+    btnCloseModalTask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dialogListElement = document.querySelector("#dialog-edit-task");
+        dialogListElement.close();
+    });
+
+    btnRenameTask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const taskNameEditTask = document.querySelector("#task-name-edit-task").value;
+        const bodyContent = document.querySelector("#body-content");
+        bodyContent.textContent = "";
+        editTask(list, taskId, taskNameEditTask);
+        renderCardTaskItem(list)
+    });
+
+    formDivTask.appendChild(labelTask);
+    formDivTask.appendChild(inputTask);
+    inputSectionTask.appendChild(formDivTask)
+    formTask.appendChild(inputSectionTask);
+    btnSectionTask.appendChild(btnCloseModalTask);
+    btnSectionTask.appendChild(btnRenameTask);
+    formTask.appendChild(btnSectionTask);
+    containerFormTask.appendChild(formTask);
+    dialogTask.appendChild(containerFormTask);
+    parentNode.appendChild(dialogTask);
+};
+
+function renderCardTaskItem(list) {
     createCardTaskItem(list);
-}
+};
 
 export { renderScreen };
-
-// edit task item

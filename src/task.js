@@ -21,15 +21,23 @@ const createTask = (listId, names) => {
 
 const getTaskIndex = (taskItem, taskId) => taskItem.findIndex((task) => task.id === taskId);
 
+const getTask = (taskItem, taskId) => taskItem.find((task) => task.id === taskId);
+
 const deleteTask = (list, taskId) => {
     const taskItem = list.tasks;
     const listId = list.id;
     console.log("test");
     const taskIndex = getTaskIndex(taskItem, taskId);
     taskItem.splice(taskIndex, 1);
-    saveToLocalStorage(lists,listId);
+    saveToLocalStorage(lists, listId);
 };
 
-export { createTask, deleteTask };
+const editTask = (list, taskId, newName) => {
+    const taskItem = list.tasks;
+    const listId = list.id;
+    const task = getTask(taskItem, taskId);
+    task.name = newName;
+    saveToLocalStorage(lists, listId);
+};
 
-// buat function untuk mengedit task
+export { createTask, deleteTask, editTask };
