@@ -27,7 +27,7 @@ function renderSidebar(parentNode) {
     const sidebarBtn = document.createElement("button");
     sidebarBtn.textContent = "Sidebar Button";
     sidebarBtn.addEventListener("click", () => {
-        const dialogElement = document.querySelector("#dialog");
+        const dialogElement = document.querySelector("#dialog-list");
         dialogElement.showModal();
     });
 
@@ -49,7 +49,7 @@ function renderSidebar(parentNode) {
 
 function renderDialog(parentNode) {
     const dialog = document.createElement("dialog");
-    dialog.setAttribute("id", "dialog");
+    dialog.setAttribute("id", "dialog-list");
     const containerForm = document.createElement("div");
     containerForm.setAttribute("id", "container-form");
     const form = document.createElement("form");
@@ -80,7 +80,7 @@ function renderDialog(parentNode) {
 
     btnCloseModal.addEventListener("click", (e) => {
         e.preventDefault();
-        const dialogElement = document.querySelector("#dialog");
+        const dialogElement = document.querySelector("#dialog-list");
         dialogElement.close();
     });
 
@@ -127,7 +127,7 @@ function createCardList(parentNode) {
         btnEditList.addEventListener("click", (e) => {
             e.preventDefault();
             renderDialogEditList(parentNode, currentListId)
-            const dialogList = document.querySelector("#dialog-edit-list");
+            const dialogList = document.querySelector("#dialog-list-edit-list");
             dialogList.showModal();
         });
 
@@ -188,7 +188,7 @@ function renderDialogEditList(parentNode, listId) {
 
     btnCloseModalList.addEventListener("click", (e) => {
         e.preventDefault();
-        const dialogListElement = document.querySelector("#dialog-edit-list");
+        const dialogListElement = document.querySelector("#dialog-list-edit-list");
         dialogListElement.close();
     });
 
@@ -273,6 +273,7 @@ function renderDialogAddItem(parentNode, listId) {
     inputAddItem.setAttribute("id", "title-add-item");
     inputAddItem.setAttribute("type", "text");
     inputAddItem.setAttribute("name", "title");
+    // input description
 
     const btnSectionAddItem = document.createElement("section");
     btnSectionAddItem.classList.add("btn-section-add-item");
@@ -431,3 +432,5 @@ function renderCardTaskItem(list) {
 };
 
 export { renderScreen };
+
+// buat fitur tambahkan deskripsi task
