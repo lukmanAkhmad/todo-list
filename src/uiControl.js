@@ -127,7 +127,7 @@ function createCardList(parentNode) {
         btnEditList.addEventListener("click", (e) => {
             e.preventDefault();
             renderDialogEditList(parentNode, currentListId)
-            const dialogList = document.querySelector("#dialog-list-edit-list");
+            const dialogList = document.querySelector("#dialog-edit-list");
             dialogList.showModal();
         });
 
@@ -163,43 +163,40 @@ function renderDialogEditList(parentNode, listId) {
     const formList = document.createElement("form");
     formList.setAttribute("action", "");
     const inputSectionList = document.createElement("section");
-    inputSectionList.classList.add("input-section-edit-list");
+    inputSectionList.classList.add("section-input-edit-list");
     const formDivList = document.createElement("div");
     formDivList.classList.add("form-div-edit-list");
     const labelList = document.createElement("label");
     labelList.classList.add("label-list-name-edit-list");
-    labelList.setAttribute("for", "list-name");
+    labelList.setAttribute("for", "list-name-edit-list");
     labelList.textContent = "List Name";
     const inputList = document.createElement("input");
     inputList.setAttribute("id", "list-name-edit-list");
     inputList.setAttribute("type", "text");
-    inputList.setAttribute("name", "list-name");
+    inputList.setAttribute("name", "list-name-edit-list");
 
     const btnSectionList = document.createElement("section");
-    btnSectionList.classList.add("btn-section-edit-list");
+    btnSectionList.classList.add("section-btn-edit-list");
     const btnCloseModalList = document.createElement("button");
-    btnCloseModalList.setAttribute("id", "close-modal-edit-list");
+    btnCloseModalList.setAttribute("id", "btn-close-modal-edit-list");
     btnCloseModalList.setAttribute("type", "button");
     btnCloseModalList.textContent = "Cancel";
     const btnRenameList = document.createElement("button");
-    btnRenameList.setAttribute("id", "create-list-edit-list"); // ganti nama id menjadi btn-rename-list 
+    btnRenameList.setAttribute("id", "btn-rename-list-edit-list");
     btnRenameList.setAttribute("type", "submit");
     btnRenameList.textContent = "Rename";
 
     btnCloseModalList.addEventListener("click", (e) => {
         e.preventDefault();
-        const dialogListElement = document.querySelector("#dialog-list-edit-list");
+        const dialogListElement = document.querySelector("#dialog-edit-list");
         dialogListElement.close();
     });
 
     btnRenameList.addEventListener("click", (e) => {
         e.preventDefault();
         const listNameEditList = document.querySelector("#list-name-edit-list").value;
-        const containerTodolist = document.querySelector(".container-todolist");    // ini
-        containerTodolist.textContent = ""; // ini
         editList(listId, listNameEditList);
-        createCardList(containerTodolist);  // dan ini hapus dan gunakan renderCardList();
-        // renderCardList();
+        renderCardList();
     });
 
     formDivList.appendChild(labelList);
@@ -433,4 +430,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
+// samakan semua for pada label dan id pada input
 // buat fitur tambahkan deskripsi task
