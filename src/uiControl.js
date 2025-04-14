@@ -40,14 +40,14 @@ function renderSidebar(parentNode) {
 
     sidebar.appendChild(headerSidebar);
     sidebar.appendChild(containerBtnSidebar);
-    renderDialog(sidebar)
+    renderDialogList(sidebar)
     sidebar.appendChild(containerTodolist);
     createCardList(containerTodolist);
 
     parentNode.appendChild(sidebar);
 };
 
-function renderDialog(parentNode) {
+function renderDialogList(parentNode) {
     const dialog = document.createElement("dialog");
     dialog.setAttribute("id", "dialog-list");
     const containerForm = document.createElement("div");
@@ -117,7 +117,7 @@ function createCardList(parentNode) {
 
         const btnEditList = document.createElement("button");
         btnEditList.classList.add("btn-edit-list");
-        btnEditList.setAttribute("type", "submit"); // ganti submit jadi button
+        btnEditList.setAttribute("type", "button");
         btnEditList.textContent = "Edit";
         const btnDeleteList = document.createElement("button");
         btnDeleteList.classList.add("btn-delete-list");
