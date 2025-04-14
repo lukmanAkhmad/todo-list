@@ -55,7 +55,7 @@ function renderDialog(parentNode) {
     const form = document.createElement("form");
     form.setAttribute("action", "");
     const inputSection = document.createElement("section");
-    inputSection.classList.add("input-section");
+    inputSection.classList.add("section-input-list");
     const formDiv = document.createElement("div");
     formDiv.classList.add("form-div");
     const label = document.createElement("label");
@@ -68,7 +68,7 @@ function renderDialog(parentNode) {
     input.setAttribute("name", "list-name");
 
     const btnSection = document.createElement("section");
-    btnSection.classList.add("btn-section");
+    btnSection.classList.add("section-btn-list");
     const btnCloseModal = document.createElement("button");
     btnCloseModal.setAttribute("id", "close-modal");
     btnCloseModal.setAttribute("type", "button");
