@@ -67,6 +67,18 @@ body {
     box-shadow: 9px 9px 15px 1px #a9c121;
 }
 
+#dialog-edit-task {
+    border: 0;
+    border-radius: 9px;
+    width: 473px;
+    height: 373px;
+    position: fixed;
+    z-index: 100;
+    left: 22%;
+    top: 30%;
+    box-shadow: 9px 9px 15px 1px #a9c121;
+}
+
 #header-content {
     background-color: honeydew;
     grid-row: 1 / 2;

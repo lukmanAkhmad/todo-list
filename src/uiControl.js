@@ -431,6 +431,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// samakan semua for pada label dan id pada input
 // setiap button rename maka UI akan diperbarui secara otomatis!
 // buat fitur tambahkan deskripsi task
