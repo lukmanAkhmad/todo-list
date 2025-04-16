@@ -136,7 +136,9 @@ function createCardList(parentNode) {
             deleteList(currentListId);
             renderCardList();
             const headerContainer = document.querySelector("#header-content");
+            const bodyContent = document.querySelector("#body-content");
             headerContainer.textContent = "";
+            bodyContent.textContent = "";
             console.table(lists);
         });
 
