@@ -380,12 +380,12 @@ function renderDialogEditTask(parentNode, list, taskId) {
     formDivTask.classList.add("form-div-edit-task");
     const labelTask = document.createElement("label");
     labelTask.classList.add("label-task-name-edit-task");
-    labelTask.setAttribute("for", "task-name");
+    labelTask.setAttribute("for", "task-name-edit-task");
     labelTask.textContent = "List Name";
     const inputTask = document.createElement("input");
     inputTask.setAttribute("id", "task-name-edit-task");
     inputTask.setAttribute("type", "text");
-    inputTask.setAttribute("name", "task-name");
+    inputTask.setAttribute("name", "task-name-edit-task");
 
     const btnSectionTask = document.createElement("section");
     btnSectionTask.classList.add("btn-section-edit-task");
