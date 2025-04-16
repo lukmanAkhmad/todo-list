@@ -295,7 +295,8 @@ function renderDialogAddItem(parentNode, listId) {
         e.preventDefault();
         const titleAddTask = document.querySelector("#title-add-item").value;
         createTask(listId, titleAddTask);
-
+        let findList = getList(listId);
+        renderCardTaskItem(findList);
     });
 
     formDivAddItem.appendChild(titleAddItem);
@@ -432,5 +433,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// setiap button add task diklik maka UI akan diperbarui secara otomatis!
+// setiap button delete list diklik maka UI akan diperbarui secara otomatis!
 // buat fitur tambahkan deskripsi task
