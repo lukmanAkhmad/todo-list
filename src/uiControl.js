@@ -197,7 +197,8 @@ function renderDialogEditList(parentNode, listId) {
         const listNameEditList = document.querySelector("#list-name-edit-list").value;
         editList(listId, listNameEditList);
         renderCardList();
-        createHeaderContent;
+        let findList = getList(listId);
+        createHeaderContent(findList);
     });
 
     formDivList.appendChild(labelList);
@@ -431,5 +432,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// setiap button rename maka UI akan diperbarui secara otomatis!
+// setiap button add task diklik maka UI akan diperbarui secara otomatis!
 // buat fitur tambahkan deskripsi task
