@@ -197,6 +197,7 @@ function renderDialogEditList(parentNode, listId) {
         const listNameEditList = document.querySelector("#list-name-edit-list").value;
         editList(listId, listNameEditList);
         renderCardList();
+        createHeaderContent;
     });
 
     formDivList.appendChild(labelList);
@@ -264,12 +265,12 @@ function renderDialogAddItem(parentNode, listId) {
     formDivAddItem.classList.add("form-div-add-item");
     const titleAddItem = document.createElement("label");
     titleAddItem.classList.add("label-title-add-item");
-    titleAddItem.setAttribute("for", "title");
+    titleAddItem.setAttribute("for", "title-add-item");
     titleAddItem.textContent = "Title";
     const inputAddItem = document.createElement("input");
     inputAddItem.setAttribute("id", "title-add-item");
     inputAddItem.setAttribute("type", "text");
-    inputAddItem.setAttribute("name", "title");
+    inputAddItem.setAttribute("name", "title-add-item");
     // input description
 
     const btnSectionAddItem = document.createElement("section");
@@ -431,4 +432,5 @@ function renderCardTaskItem(list) {
 export { renderScreen };
 
 // samakan semua for pada label dan id pada input
+// setiap button rename maka UI akan diperbarui secara otomatis!
 // buat fitur tambahkan deskripsi task
