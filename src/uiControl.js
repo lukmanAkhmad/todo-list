@@ -264,16 +264,17 @@ function renderDialogAddItem(parentNode, listId) {
     formAddItem.setAttribute("action", "");
     const inputSectionAddItem = document.createElement("section");
     inputSectionAddItem.classList.add("input-section-add-item");
-    const formDivAddItem = document.createElement("div");
-    formDivAddItem.classList.add("form-div-add-item");
-    const titleAddItem = document.createElement("label");
-    titleAddItem.classList.add("label-title-add-item");
-    titleAddItem.setAttribute("for", "title-add-item");
-    titleAddItem.textContent = "Title";
-    const inputAddItem = document.createElement("input");
-    inputAddItem.setAttribute("id", "title-add-item");
-    inputAddItem.setAttribute("type", "text");
-    inputAddItem.setAttribute("name", "title-add-item");
+    const formDivTitleTask = document.createElement("div");
+    formDivTitleTask.classList.add("form-div");
+    const labelTitleTask = document.createElement("label");
+    labelTitleTask.classList.add("label-title-add-item");
+    labelTitleTask.setAttribute("for", "title-add-item");
+    labelTitleTask.textContent = "Title";
+    const inputTitleTask = document.createElement("input");
+    inputTitleTask.setAttribute("id", "title-add-item");
+    inputTitleTask.setAttribute("type", "text");
+    inputTitleTask.setAttribute("name", "title-add-item");
+    
     // input description
 
     const btnSectionAddItem = document.createElement("section");
@@ -301,9 +302,9 @@ function renderDialogAddItem(parentNode, listId) {
         renderCardTaskItem(findList);
     });
 
-    formDivAddItem.appendChild(titleAddItem);
-    formDivAddItem.appendChild(inputAddItem);
-    inputSectionAddItem.appendChild(formDivAddItem)
+    formDivTitleTask.appendChild(labelTitleTask);
+    formDivTitleTask.appendChild(inputTitleTask);
+    inputSectionAddItem.appendChild(formDivTitleTask)
     formAddItem.appendChild(inputSectionAddItem);
     btnSectionAddItem.appendChild(btnCloseModalAddItem);
     btnSectionAddItem.appendChild(btnAddTask);
@@ -435,5 +436,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// setiap button delete list diklik maka UI akan diperbarui secara otomatis!
 // buat fitur tambahkan deskripsi task
