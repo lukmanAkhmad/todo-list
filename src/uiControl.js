@@ -264,6 +264,7 @@ function renderDialogAddItem(parentNode, listId) {
     formAddItem.setAttribute("action", "");
     const inputSectionAddItem = document.createElement("section");
     inputSectionAddItem.classList.add("input-section-add-item");
+    
     const formDivTitleTask = document.createElement("div");
     formDivTitleTask.classList.add("form-div");
     const labelTitleTask = document.createElement("label");
@@ -274,8 +275,17 @@ function renderDialogAddItem(parentNode, listId) {
     inputTitleTask.setAttribute("id", "title-add-item");
     inputTitleTask.setAttribute("type", "text");
     inputTitleTask.setAttribute("name", "title-add-item");
-    
-    // input description
+
+    const formDivDescriptionTask = document.createElement("div");
+    formDivDescriptionTask.classList.add("form-div");
+    const labelDescriptionTask = document.createElement("label");
+    labelDescriptionTask.classList.add("label-description-task");
+    labelDescriptionTask.setAttribute("for", "label-description-task");
+    labelDescriptionTask.textContent = "Description";
+    const inputDescriptionTask = document.createElement("input");
+    inputDescriptionTask.setAttribute("id", "description-task");
+    inputDescriptionTask.setAttribute("type", "text");
+    inputDescriptionTask.setAttribute("name", "description-task");
 
     const btnSectionAddItem = document.createElement("section");
     btnSectionAddItem.classList.add("btn-section-add-item");
@@ -296,8 +306,9 @@ function renderDialogAddItem(parentNode, listId) {
 
     btnAddTask.addEventListener("click", (e) => {
         e.preventDefault();
-        const titleAddTask = document.querySelector("#title-add-item").value;
-        createTask(listId, titleAddTask);
+        const titlTask = document.querySelector("#title-add-item").value;
+        const descriptionTask = document.querySelector("#description-task").value;
+        createTask(listId, titlTask,descriptionTask);
         let findList = getList(listId);
         renderCardTaskItem(findList);
     });
@@ -305,6 +316,9 @@ function renderDialogAddItem(parentNode, listId) {
     formDivTitleTask.appendChild(labelTitleTask);
     formDivTitleTask.appendChild(inputTitleTask);
     inputSectionAddItem.appendChild(formDivTitleTask)
+    formDivDescriptionTask.appendChild(labelDescriptionTask);
+    formDivDescriptionTask.appendChild(inputDescriptionTask);
+    inputSectionAddItem.appendChild(formDivDescriptionTask)
     formAddItem.appendChild(inputSectionAddItem);
     btnSectionAddItem.appendChild(btnCloseModalAddItem);
     btnSectionAddItem.appendChild(btnAddTask);
@@ -333,7 +347,7 @@ function createCardTaskItem(list) {
         card.classList.add("cards");
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
-        cardListName.textContent = val.name;
+        cardListName.textContent = val.title;
 
         const currentTaskItemId = val.id;
 

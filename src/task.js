@@ -1,19 +1,21 @@
 import { lists, getList, getListIndex } from "./list";
 import { saveToLocalStorage } from "./localStorage";
 
-function Task(names) {
+function Task(titleTask, descriptions) {
     let id = Date.now().toString();
-    let name = names;
+    let title = titleTask;
+    let description = descriptions;
     let complete = false;
     return {
         id,
-        name,
+        title,
+        description,
         complete,
     };
 };
 
-const createTask = (listId, names) => {
-    const task = Task(names);
+const createTask = (listId, titleTask, descriptions) => {
+    const task = Task(titleTask, descriptions);
     const list = getList(listId);
     list.tasks.push(task);
     saveToLocalStorage(lists, listId);
