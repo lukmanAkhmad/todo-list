@@ -264,17 +264,17 @@ function renderDialogAddItem(parentNode, listId) {
     formAddItem.setAttribute("action", "");
     const inputSectionAddItem = document.createElement("section");
     inputSectionAddItem.classList.add("input-section-add-item");
-    
+
     const formDivTitleTask = document.createElement("div");
     formDivTitleTask.classList.add("form-div");
     const labelTitleTask = document.createElement("label");
-    labelTitleTask.classList.add("label-title-add-item");
-    labelTitleTask.setAttribute("for", "title-add-item");
+    labelTitleTask.classList.add("label-title-task");
+    labelTitleTask.setAttribute("for", "title-task");
     labelTitleTask.textContent = "Title";
     const inputTitleTask = document.createElement("input");
-    inputTitleTask.setAttribute("id", "title-add-item");
+    inputTitleTask.setAttribute("id", "title-task");
     inputTitleTask.setAttribute("type", "text");
-    inputTitleTask.setAttribute("name", "title-add-item");
+    inputTitleTask.setAttribute("name", "title-task");
 
     const formDivDescriptionTask = document.createElement("div");
     formDivDescriptionTask.classList.add("form-div");
