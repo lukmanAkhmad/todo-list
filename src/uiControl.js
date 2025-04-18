@@ -291,7 +291,7 @@ function renderDialogAddItem(parentNode, listId) {
     const formDivDueDateTask = document.createElement("div");
     formDivDueDateTask.classList.add("form-div");
     const labelDueDateTask = document.createElement("label");
-    labelDueDateTask.classList.add("label-description-task");
+    labelDueDateTask.classList.add("label-dueDate-task");
     labelDueDateTask.setAttribute("for", "dueDate-task");
     labelDueDateTask.textContent = "dueDate";
     const inputDueDateTask = document.createElement("input");
@@ -299,6 +299,28 @@ function renderDialogAddItem(parentNode, listId) {
     inputDueDateTask.setAttribute("min", format(today, "yyyy-mm-dd"));
     inputDueDateTask.setAttribute("type", "date");
     inputDueDateTask.setAttribute("name", "dueDate-task");
+
+    const formDivPriorityTask = document.createElement("div");
+    formDivPriorityTask.classList.add("form-div");
+    const labelPriorityTask = document.createElement("label");
+    labelPriorityTask.classList.add("label-priority-task");
+    labelPriorityTask.setAttribute("for", "priority-task");
+    labelPriorityTask.textContent = "Priority";
+    const selectPriorityTask = document.createElement("select");
+    selectPriorityTask.setAttribute("id", "priority-task");
+    selectPriorityTask.setAttribute("name", "priority");
+    const lowOptionPriorityTask = document.createElement("option");
+    lowOptionPriorityTask.classList.add("option-priority-task");
+    lowOptionPriorityTask.setAttribute("value", "low");
+    lowOptionPriorityTask.textContent = "Low";
+    const mediumOptionPriorityTask = document.createElement("option");
+    mediumOptionPriorityTask.classList.add("option-priority-task");
+    mediumOptionPriorityTask.setAttribute("value", "medium");
+    mediumOptionPriorityTask.textContent = "Medium";
+    const highOptionPriorityTask = document.createElement("option");
+    highOptionPriorityTask.classList.add("option-priority-task");
+    highOptionPriorityTask.setAttribute("value", "high");
+    highOptionPriorityTask.textContent = "High";
 
     const btnSectionAddItem = document.createElement("section");
     btnSectionAddItem.classList.add("btn-section-add-item");
@@ -322,10 +344,15 @@ function renderDialogAddItem(parentNode, listId) {
         const titlTask = document.querySelector("#title-task").value;
         const descriptionTask = document.querySelector("#description-task").value;
         const dueDateTask = document.querySelector("#dueDate-task").value;
-        createTask(listId, titlTask, descriptionTask, dueDateTask);
+        const priorityTask = document.querySelector("#priority-task").value;
+        createTask(listId, titlTask, descriptionTask, dueDateTask, priorityTask);
         let findList = getList(listId);
         renderCardTaskItem(findList);
     });
+
+    selectPriorityTask.appendChild(lowOptionPriorityTask);
+    selectPriorityTask.appendChild(mediumOptionPriorityTask);
+    selectPriorityTask.appendChild(highOptionPriorityTask);
 
     formDivTitleTask.appendChild(labelTitleTask);
     formDivTitleTask.appendChild(inputTitleTask);
@@ -336,6 +363,9 @@ function renderDialogAddItem(parentNode, listId) {
     formDivDueDateTask.appendChild(labelDueDateTask);
     formDivDueDateTask.appendChild(inputDueDateTask);
     inputSectionAddItem.appendChild(formDivDueDateTask);
+    formDivPriorityTask.appendChild(labelPriorityTask);
+    formDivPriorityTask.appendChild(selectPriorityTask);
+    inputSectionAddItem.appendChild(formDivPriorityTask);
     formAddItem.appendChild(inputSectionAddItem);
     btnSectionAddItem.appendChild(btnCloseModalAddItem);
     btnSectionAddItem.appendChild(btnAddTask);
@@ -467,4 +497,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// buat fitur tambahkan dueDate task
+// buat fitur tambahkan priority task
