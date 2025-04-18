@@ -1,6 +1,6 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
 import { createTask, deleteTask, editTask } from "./task";
-import { saveToLocalStorage } from "./localStorage";
+import { format } from "date-fns";
 
 function renderScreen() {
     const body = document.querySelector("body");
@@ -280,12 +280,25 @@ function renderDialogAddItem(parentNode, listId) {
     formDivDescriptionTask.classList.add("form-div");
     const labelDescriptionTask = document.createElement("label");
     labelDescriptionTask.classList.add("label-description-task");
-    labelDescriptionTask.setAttribute("for", "label-description-task");
+    labelDescriptionTask.setAttribute("for", "description-task");
     labelDescriptionTask.textContent = "Description";
     const inputDescriptionTask = document.createElement("input");
     inputDescriptionTask.setAttribute("id", "description-task");
     inputDescriptionTask.setAttribute("type", "text");
     inputDescriptionTask.setAttribute("name", "description-task");
+
+    const today = new Date();
+    const formDivDueDateTask = document.createElement("div");
+    formDivDueDateTask.classList.add("form-div");
+    const labelDueDateTask = document.createElement("label");
+    labelDueDateTask.classList.add("label-description-task");
+    labelDueDateTask.setAttribute("for", "dueDate-task");
+    labelDueDateTask.textContent = "dueDate";
+    const inputDueDateTask = document.createElement("input");
+    inputDueDateTask.setAttribute("id", "dueDate-task");
+    inputDueDateTask.setAttribute("min", format(today, "yyyy-mm-dd"));
+    inputDueDateTask.setAttribute("type", "date");
+    inputDueDateTask.setAttribute("name", "dueDate-task");
 
     const btnSectionAddItem = document.createElement("section");
     btnSectionAddItem.classList.add("btn-section-add-item");
@@ -306,19 +319,23 @@ function renderDialogAddItem(parentNode, listId) {
 
     btnAddTask.addEventListener("click", (e) => {
         e.preventDefault();
-        const titlTask = document.querySelector("#title-add-item").value;
+        const titlTask = document.querySelector("#title-task").value;
         const descriptionTask = document.querySelector("#description-task").value;
-        createTask(listId, titlTask,descriptionTask);
+        const dueDateTask = document.querySelector("#dueDate-task").value;
+        createTask(listId, titlTask, descriptionTask, dueDateTask);
         let findList = getList(listId);
         renderCardTaskItem(findList);
     });
 
     formDivTitleTask.appendChild(labelTitleTask);
     formDivTitleTask.appendChild(inputTitleTask);
-    inputSectionAddItem.appendChild(formDivTitleTask)
+    inputSectionAddItem.appendChild(formDivTitleTask);
     formDivDescriptionTask.appendChild(labelDescriptionTask);
     formDivDescriptionTask.appendChild(inputDescriptionTask);
-    inputSectionAddItem.appendChild(formDivDescriptionTask)
+    inputSectionAddItem.appendChild(formDivDescriptionTask);
+    formDivDueDateTask.appendChild(labelDueDateTask);
+    formDivDueDateTask.appendChild(inputDueDateTask);
+    inputSectionAddItem.appendChild(formDivDueDateTask);
     formAddItem.appendChild(inputSectionAddItem);
     btnSectionAddItem.appendChild(btnCloseModalAddItem);
     btnSectionAddItem.appendChild(btnAddTask);
@@ -450,4 +467,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// buat fitur tambahkan deskripsi task
+// buat fitur tambahkan dueDate task
