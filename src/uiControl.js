@@ -391,7 +391,7 @@ function createCardTaskItem(list) {
     let taskItem = list.tasks;
     taskItem.forEach((val) => {
         const card = document.createElement("div");
-        card.classList.add("cards");
+        card.classList.add("cards-task");
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.title;
@@ -497,4 +497,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// buat fitur tambahkan priority task
+// design UI card task
+// lalu tambahakan fitur checklist
