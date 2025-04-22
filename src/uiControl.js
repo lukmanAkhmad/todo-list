@@ -442,17 +442,15 @@ function createCardTaskItem(list) {
 
         });
 
-        card.appendChild(priorityColor);
         containerCheckbox.appendChild(checkbox);
-
-        card.appendChild(containerCheckbox);
-
-        card.appendChild(subCardTask);
         containerNameAndDueDate.appendChild(cardListName);
         containerNameAndDueDate.appendChild(dueDateTask);
         subCardTask.appendChild(containerNameAndDueDate);
         subCardTask.appendChild(btnEditTaskItem);
         subCardTask.appendChild(btnDeleteTaskItem);
+        card.appendChild(priorityColor);
+        card.appendChild(containerCheckbox);
+        card.appendChild(subCardTask);
         bodyContent.appendChild(card);
     });
 };
