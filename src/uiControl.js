@@ -402,9 +402,15 @@ function createCardTaskItem(list) {
         checkbox.setAttribute("id", "checklist");
         checkbox.setAttribute("type", "checkbox");
 
+        const containerNameAndDueDate = document.createElement("div");
+        containerNameAndDueDate.classList.add("container-name-and-dueDate-task");
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.title;
+        const dueDateTask = document.createElement("p");
+        dueDateTask.classList.add("dueDate-task");
+        dueDateTask.textContent = val.dueDate;
+
 
         const currentTaskItemId = val.id;
 
@@ -438,9 +444,13 @@ function createCardTaskItem(list) {
 
         card.appendChild(priorityColor);
         containerCheckbox.appendChild(checkbox);
+
         card.appendChild(containerCheckbox);
+
         card.appendChild(subCardTask);
-        subCardTask.appendChild(cardListName);
+        containerNameAndDueDate.appendChild(cardListName);
+        containerNameAndDueDate.appendChild(dueDateTask);
+        subCardTask.appendChild(containerNameAndDueDate);
         subCardTask.appendChild(btnEditTaskItem);
         subCardTask.appendChild(btnDeleteTaskItem);
         bodyContent.appendChild(card);

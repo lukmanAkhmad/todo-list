@@ -117,7 +117,17 @@ body {
     border-radius: 9px 0px 0px 9px;
 }
 
+.container-checkbox-task {
+    display: flex;
+}
+
 .sub-card-task {
     display: flex;
     align-items: center;
+}
+
+.container-name-and-dueDate-task {
+    display: flex;
+    justify-content: space-between;
+    width: 715px;
 }
