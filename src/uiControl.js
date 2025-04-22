@@ -392,6 +392,10 @@ function createCardTaskItem(list) {
     taskItem.forEach((val) => {
         const card = document.createElement("div");
         card.classList.add("cards-task");
+        const priorityColor = document.createElement("div");
+        priorityColor.classList.add("priority-color");
+        const subCardTask = document.createElement("div");
+        subCardTask.classList.add("sub-card-task");
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.title;
@@ -426,9 +430,11 @@ function createCardTaskItem(list) {
 
         });
 
-        card.appendChild(cardListName);
-        card.appendChild(btnEditTaskItem);
-        card.appendChild(btnDeleteTaskItem);
+        card.appendChild(priorityColor);
+        card.appendChild(subCardTask);
+        subCardTask.appendChild(cardListName);
+        subCardTask.appendChild(btnEditTaskItem);
+        subCardTask.appendChild(btnDeleteTaskItem);
         bodyContent.appendChild(card);
     });
 };
