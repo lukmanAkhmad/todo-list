@@ -396,6 +396,12 @@ function createCardTaskItem(list) {
         priorityColor.classList.add("priority-color");
         const subCardTask = document.createElement("div");
         subCardTask.classList.add("sub-card-task");
+        const containerCheckbox = document.createElement("div");
+        containerCheckbox.classList.add("container-checkbox-task");
+        const checkbox = document.createElement("input");
+        checkbox.setAttribute("id", "checklist");
+        checkbox.setAttribute("type", "checkbox");
+
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.title;
@@ -431,6 +437,8 @@ function createCardTaskItem(list) {
         });
 
         card.appendChild(priorityColor);
+        containerCheckbox.appendChild(checkbox);
+        card.appendChild(containerCheckbox);
         card.appendChild(subCardTask);
         subCardTask.appendChild(cardListName);
         subCardTask.appendChild(btnEditTaskItem);
