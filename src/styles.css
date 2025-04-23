@@ -112,18 +112,31 @@ body {
 
 .priority-color {
     width: 31px;
-    background-color: var(--color-green);
     border-right: 3px solid black;
     border-radius: 9px 0px 0px 9px;
 }
 
+.priority-color-green {
+    background-color: var(--color-green);
+}
+
+.priority-color-yellow {
+    background-color: var(--color-egg-yelows);
+}
+
+.priority-color-red {
+    background-color: var(--color-red);
+}
+
 .container-checkbox-task {
     display: flex;
+    padding: 9px;
 }
 
 .sub-card-task {
     display: flex;
     align-items: center;
+    gap: 13px;
 }
 
 .container-name-and-dueDate-task {

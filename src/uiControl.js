@@ -411,8 +411,12 @@ function createCardTaskItem(list) {
         dueDateTask.classList.add("dueDate-task");
         dueDateTask.textContent = val.dueDate;
 
-
         const currentTaskItemId = val.id;
+        const priorityLevel = val.priority;
+
+        if (priorityLevel === "low") priorityColor.className = "priority-color priority-color-green";
+        if (priorityLevel === "medium") priorityColor.className = "priority-color priority-color-yellow";
+        if (priorityLevel === "high") priorityColor.className = "priority-color priority-color-red";
 
         const btnEditTaskItem = document.createElement("button");
         btnEditTaskItem.classList.add("btn-edit-task-item");
