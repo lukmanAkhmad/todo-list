@@ -38,11 +38,11 @@ const deleteTask = (list, taskId) => {
     saveToLocalStorage(lists, listId);
 };
 
-const editTask = (list, taskId, newName) => {
+const editTask = (list, taskId, newTitle) => {
     const taskItem = list.tasks;
     const listId = list.id;
     const task = getTask(taskItem, taskId);
-    task.name = newName;
+    task.title = newTitle;
     saveToLocalStorage(lists, listId);
 };
 
