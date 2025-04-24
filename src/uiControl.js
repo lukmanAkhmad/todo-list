@@ -1,5 +1,5 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
-import { createTask, deleteTask, editTask } from "./task";
+import { createTask, deleteTask, editTask, completeTask } from "./task";
 import { format } from "date-fns";
 
 function renderScreen() {
@@ -401,6 +401,7 @@ function createCardTaskItem(list) {
         const checkbox = document.createElement("input");
         checkbox.setAttribute("id", "checklist");
         checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("value", "complete-task");
 
         const containerNameAndDueDate = document.createElement("div");
         containerNameAndDueDate.classList.add("container-name-and-dueDate-task");
@@ -426,6 +427,19 @@ function createCardTaskItem(list) {
         btnDeleteTaskItem.classList.add("btn-delete-list");
         btnDeleteTaskItem.setAttribute("type", "button");
         btnDeleteTaskItem.textContent = "Delete";
+
+        checkbox.addEventListener("click", () => {
+            if (checkbox.checked === true) {
+                const completeStatus = true;
+                completeTask(list, currentTaskItemId, completeStatus);
+                console.log(`status complete ${val.complete}`);
+            };
+            if (checkbox.checked === false) {
+                const completeStatus = false;
+                completeTask(list, currentTaskItemId, completeStatus);
+                console.log(`status complete ${val.complete}`);
+            };
+        });
 
         btnEditTaskItem.addEventListener("click", (e) => {
             console.log("btn edit task onclick");

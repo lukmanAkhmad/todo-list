@@ -46,4 +46,12 @@ const editTask = (list, taskId, newTitle) => {
     saveToLocalStorage(lists, listId);
 };
 
-export { createTask, deleteTask, editTask };
+const completeTask = (list, taskId, completeStatus) => {
+    const taskItem = list.tasks;
+    const listId = list.id;
+    const task = getTask(taskItem, taskId);
+    task.complete = completeStatus;
+    saveToLocalStorage(lists, listId);
+}
+
+export { createTask, deleteTask, editTask, completeTask };
