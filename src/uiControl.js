@@ -428,7 +428,7 @@ function createCardTaskItem(list) {
         btnDeleteTaskItem.setAttribute("type", "button");
         btnDeleteTaskItem.textContent = "Delete";
 
-        checkbox.addEventListener("click", () => {
+        checkbox.addEventListener("change", () => {
             if (checkbox.checked === true) {
                 const completeStatus = true;
                 completeTask(list, currentTaskItemId, completeStatus);
