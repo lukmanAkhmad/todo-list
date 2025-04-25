@@ -10,6 +10,7 @@
     --color-pinky-ring: #f2b1d8;
     --color-egg-yelows: #ffdc6a;
     --color-red: rgb(185, 58, 58);
+    --clr-primary: rgb(54, 112, 199);
 }
 
 html,
@@ -128,11 +129,6 @@ body {
     background-color: var(--color-red);
 }
 
-.container-checkbox-task {
-    display: flex;
-    padding: 9px;
-}
-
 .sub-card-task {
     display: flex;
     align-items: center;
@@ -143,4 +139,68 @@ body {
     display: flex;
     justify-content: space-between;
     width: 715px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.container-name-and-dueDate-task::after {
+    position: absolute;
+    content: '';
+    background: rgb(255, 0, 170);
+    display: block;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition: -webkit-transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    margin: 15px;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em purple;
+    background-color: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:checked+.sub-card-task>.container-name-and-dueDate-task::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
 }

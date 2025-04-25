@@ -396,8 +396,6 @@ function createCardTaskItem(list) {
         priorityColor.classList.add("priority-color");
         const subCardTask = document.createElement("div");
         subCardTask.classList.add("sub-card-task");
-        const containerCheckbox = document.createElement("div");
-        containerCheckbox.classList.add("container-checkbox-task");
         const checkbox = document.createElement("input");
         checkbox.setAttribute("id", "checklist");
         checkbox.setAttribute("type", "checkbox");
@@ -460,14 +458,13 @@ function createCardTaskItem(list) {
 
         });
 
-        containerCheckbox.appendChild(checkbox);
         containerNameAndDueDate.appendChild(cardListName);
         containerNameAndDueDate.appendChild(dueDateTask);
         subCardTask.appendChild(containerNameAndDueDate);
         subCardTask.appendChild(btnEditTaskItem);
         subCardTask.appendChild(btnDeleteTaskItem);
         card.appendChild(priorityColor);
-        card.appendChild(containerCheckbox);
+        card.appendChild(checkbox);
         card.appendChild(subCardTask);
         bodyContent.appendChild(card);
     });
