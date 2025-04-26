@@ -105,17 +105,18 @@ body {
 }
 
 .cards-task {
-    border: 1px solid var(--color-grey);
+    border: 3px solid var(--color-grey);
     display: flex;
     width: 900px;
     height: 45px;
     border-radius: 9px;
+    background-color: white;
 }
 
 .priority-color {
     width: 31px;
     border-right: 3px solid black;
-    border-radius: 9px 0px 0px 9px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 .priority-color-green {
@@ -142,13 +143,14 @@ body {
     width: 715px;
     position: relative;
     overflow: hidden;
+    font-weight: 700;
 }
 
 
 .container-name-and-dueDate-task::after {
     position: absolute;
     content: '';
-    background: rgb(255, 0, 170);
+    background: black;
     display: block;
     width: 100%;
     height: 3px;
@@ -189,7 +191,7 @@ input[type="checkbox"]::before {
     height: 0.65em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em purple;
+    box-shadow: inset 1em 1em black;
     background-color: CanvasText;
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
