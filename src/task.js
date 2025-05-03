@@ -54,4 +54,4 @@ const completeTask = (list, taskId, completeStatus) => {
     saveToLocalStorage(lists, listId);
 }
 
-export { createTask, deleteTask, editTask, completeTask };
+export { createTask, deleteTask, editTask, completeTask, getTask };
