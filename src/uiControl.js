@@ -497,45 +497,45 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     const formDivTaskDescriptionDetail = document.createElement("div");
     formDivTaskDescriptionDetail.classList.add("form-div-task-detail");
     const labelTaskDescriptionDetail = document.createElement("label");
-    labelTaskDescriptionDetail.classList.add("label-description-task");
-    labelTaskDescriptionDetail.setAttribute("for", "description-task");
+    labelTaskDescriptionDetail.classList.add("label-description-task-detail");
+    labelTaskDescriptionDetail.setAttribute("for", "description-task-detail");
     labelTaskDescriptionDetail.textContent = "Description";
     const inputTaskDescriptionDetail = document.createElement("input");
-    inputTaskDescriptionDetail.setAttribute("id", "description-task");
+    inputTaskDescriptionDetail.setAttribute("id", "description-task-detail");
     inputTaskDescriptionDetail.setAttribute("type", "text");
-    inputTaskDescriptionDetail.setAttribute("name", "description-task");
+    inputTaskDescriptionDetail.setAttribute("name", "description-task-detail");
 
     const formDivTaskDueDateDetail = document.createElement("div");
     formDivTaskDueDateDetail.classList.add("form-div");
     const labelTaskDueDateDetail = document.createElement("label");
-    labelTaskDueDateDetail.classList.add("label-dueDate-task");
-    labelTaskDueDateDetail.setAttribute("for", "dueDate-task");
+    labelTaskDueDateDetail.classList.add("label-dueDate-task-detail");
+    labelTaskDueDateDetail.setAttribute("for", "dueDate-task-detail");
     labelTaskDueDateDetail.textContent = "dueDate";
     const inputTaskDueDateDetail = document.createElement("input");
-    inputTaskDueDateDetail.setAttribute("id", "dueDate-task");
+    inputTaskDueDateDetail.setAttribute("id", "dueDate-task-detail");
     // inputTaskDueDateDetail.setAttribute("min", format(today, "yyyy-mm-dd"));
     inputTaskDueDateDetail.setAttribute("type", "date");
-    inputTaskDueDateDetail.setAttribute("name", "dueDate-task");
+    inputTaskDueDateDetail.setAttribute("name", "dueDate-task-detail");
 
     const formDivTaskPriorityDetail = document.createElement("div");
     formDivTaskPriorityDetail.classList.add("form-div");
     const labelTaskPriorityDetail = document.createElement("label");
-    labelTaskPriorityDetail.classList.add("label-priority-task");
-    labelTaskPriorityDetail.setAttribute("for", "priority-task");
+    labelTaskPriorityDetail.classList.add("label-priority-task-detail");
+    labelTaskPriorityDetail.setAttribute("for", "priority-task-detail");
     labelTaskPriorityDetail.textContent = "Priority";
     const selectTaskPriorityDetail = document.createElement("select");
-    selectTaskPriorityDetail.setAttribute("id", "priority-task");
+    selectTaskPriorityDetail.setAttribute("id", "priority-task-detail");
     selectTaskPriorityDetail.setAttribute("name", "priority");
     const lowOptionTaskPriorityDetail = document.createElement("option");
-    lowOptionTaskPriorityDetail.classList.add("option-priority-task");
+    lowOptionTaskPriorityDetail.classList.add("option-priority-task-detail");
     lowOptionTaskPriorityDetail.setAttribute("value", "low");
     lowOptionTaskPriorityDetail.textContent = "Low";
     const mediumOptionTaskPriorityDetail = document.createElement("option");
-    mediumOptionTaskPriorityDetail.classList.add("option-priority-task");
+    mediumOptionTaskPriorityDetail.classList.add("option-priority-task-detail");
     mediumOptionTaskPriorityDetail.setAttribute("value", "medium");
     mediumOptionTaskPriorityDetail.textContent = "Medium";
     const highOptionTaskPriorityDetail = document.createElement("option");
-    highOptionTaskPriorityDetail.classList.add("option-priority-task");
+    highOptionTaskPriorityDetail.classList.add("option-priority-task-detail");
     highOptionTaskPriorityDetail.setAttribute("value", "high");
     highOptionTaskPriorityDetail.textContent = "High";
 
@@ -598,6 +598,15 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
 function viewTaskDetail(currentTask) {
     const taskTitle = document.querySelector("#title-task-detail");
     taskTitle.value = currentTask.title;
+
+    const taskDescription = document.querySelector("#description-task-detail");
+    taskDescription.value = currentTask.description;
+
+    const taskDuedate = document.querySelector("#dueDate-task-detail");
+    taskDuedate.value = currentTask.dueDate;
+
+    const taskPriority = document.querySelector("#priority-task-detail");
+    taskPriority.value = currentTask.priority;
 }
 
 function renderDialogEditTask(parentNode, list, taskId) {
@@ -664,7 +673,3 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// dialog task detail samakan dengan dialog add item
-
-// jika card task diklik maka akan muncul detail
-// dari task tersebut
