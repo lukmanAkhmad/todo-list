@@ -48,37 +48,37 @@ function renderSidebar(parentNode) {
 };
 
 function renderDialogList(parentNode) {
-    const dialog = document.createElement("dialog");
-    dialog.setAttribute("id", "dialog-list");
-    const containerForm = document.createElement("div");
-    containerForm.setAttribute("id", "container-form");
-    const form = document.createElement("form");
-    form.setAttribute("action", "");
-    const inputSection = document.createElement("section");
-    inputSection.classList.add("section-input-list");
-    const formDiv = document.createElement("div");
-    formDiv.classList.add("form-div");
-    const label = document.createElement("label");
-    label.classList.add("label-list-name");
-    label.setAttribute("for", "list-name");
-    label.textContent = "List Name";
-    const input = document.createElement("input");
-    input.setAttribute("id", "list-name");
-    input.setAttribute("type", "text");
-    input.setAttribute("name", "list-name");
+    const dialogList = document.createElement("dialog");
+    dialogList.setAttribute("id", "dialog-list");
+    const containerFormList = document.createElement("div");
+    containerFormList.setAttribute("id", "container-form-list");
+    const formList = document.createElement("form");
+    formList.setAttribute("action", "");
+    const sectionInputList = document.createElement("section");
+    sectionInputList.classList.add("section-input-list");
+    const formDivList = document.createElement("div");
+    formDivList.classList.add("form-div-list");
+    const labelListName = document.createElement("label");
+    labelListName.classList.add("label-list-name");
+    labelListName.setAttribute("for", "list-name");
+    labelListName.textContent = "List Name";
+    const inputListName = document.createElement("input");
+    inputListName.setAttribute("id", "list-name");
+    inputListName.setAttribute("type", "text");
+    inputListName.setAttribute("name", "list-name");
 
-    const btnSection = document.createElement("section");
-    btnSection.classList.add("section-btn-list");
-    const btnCloseModal = document.createElement("button");
-    btnCloseModal.setAttribute("id", "close-modal");
-    btnCloseModal.setAttribute("type", "button");
-    btnCloseModal.textContent = "Cancel";
+    const sectionBtnList = document.createElement("section");
+    sectionBtnList.classList.add("section-btn-list");
+    const btnCloseModalList = document.createElement("button");
+    btnCloseModalList.setAttribute("id", "btn-close-modal");
+    btnCloseModalList.setAttribute("type", "button");
+    btnCloseModalList.textContent = "Cancel";
     const btnCreateList = document.createElement("button");
-    btnCreateList.setAttribute("id", "create-list");
+    btnCreateList.setAttribute("id", "btn-create-list");
     btnCreateList.setAttribute("type", "submit");
     btnCreateList.textContent = "Create List";
 
-    btnCloseModal.addEventListener("click", (e) => {
+    btnCloseModalList.addEventListener("click", (e) => {
         e.preventDefault();
         const dialogElement = document.querySelector("#dialog-list");
         dialogElement.close();
@@ -93,16 +93,16 @@ function renderDialogList(parentNode) {
         createCardList(containerTodolist);
     });
 
-    formDiv.appendChild(label);
-    formDiv.appendChild(input);
-    inputSection.appendChild(formDiv)
-    form.appendChild(inputSection);
-    btnSection.appendChild(btnCloseModal);
-    btnSection.appendChild(btnCreateList);
-    form.appendChild(btnSection);
-    containerForm.appendChild(form);
-    dialog.appendChild(containerForm);
-    parentNode.appendChild(dialog);
+    formDivList.appendChild(labelListName);
+    formDivList.appendChild(inputListName);
+    sectionInputList.appendChild(formDivList)
+    formList.appendChild(sectionInputList);
+    sectionBtnList.appendChild(btnCloseModalList);
+    sectionBtnList.appendChild(btnCreateList);
+    formList.appendChild(sectionBtnList);
+    containerFormList.appendChild(formList);
+    dialogList.appendChild(containerFormList);
+    parentNode.appendChild(dialogList);
 };
 
 function createCardList(parentNode) {
@@ -673,3 +673,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
+// organisasikan nama class dan nama id
+// dan nama variabel/const nya
