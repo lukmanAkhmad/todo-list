@@ -1,5 +1,5 @@
 import { lists, createList, deleteList, editList, getList } from "./list";
-import { createTask, deleteTask, editTask, completeTask } from "./task";
+import { createTask, deleteTask, editTask, completeTask, getTask } from "./task";
 import { format } from "date-fns";
 
 function renderScreen() {
@@ -452,10 +452,13 @@ function createCardTaskItem(list) {
             renderCardTaskItem(list);
         });
 
-        card.addEventListener("click", () => {
+        containerNameAndDueDate.addEventListener("click", () => {
             console.log("card taskList on click");
-            console.log(`id task = ${currentTaskItemId}`);
-
+            renderDialogTaskDetail(bodyContent, list, currentTaskItemId);
+            const currentTask = getTask(taskItem, currentTaskItemId);
+            viewTaskDetail(currentTask);
+            const dialogTask = document.querySelector("#dialog-task-detail");
+            dialogTask.showModal();
         });
 
         containerNameAndDueDate.appendChild(cardListName);
@@ -469,6 +472,133 @@ function createCardTaskItem(list) {
         bodyContent.appendChild(card);
     });
 };
+
+function renderDialogTaskDetail(parentNode, list, taskId) {
+    const dialogTaskDetail = document.createElement("dialog");
+    dialogTaskDetail.setAttribute("id", "dialog-task-detail");
+    const containerFormTaskDetail = document.createElement("div");
+    containerFormTaskDetail.setAttribute("id", "container-form-task-detail");
+    const formTaskDetail = document.createElement("form");
+    formTaskDetail.setAttribute("action", "");
+    const inputSectionTaskDetail = document.createElement("section");
+    inputSectionTaskDetail.classList.add("input-section-task-detail");
+
+    const formDivTaskTitleDetail = document.createElement("div");
+    formDivTaskTitleDetail.classList.add("form-div-task-detail");
+    const labelTitleTaskDetail = document.createElement("label");
+    labelTitleTaskDetail.classList.add("label-title-task-detail");
+    labelTitleTaskDetail.setAttribute("for", "title-task-detail");
+    labelTitleTaskDetail.textContent = "Task Name";
+    const inputTaskDetail = document.createElement("input");
+    inputTaskDetail.setAttribute("id", "title-task-detail");
+    inputTaskDetail.setAttribute("type", "text");
+    inputTaskDetail.setAttribute("name", "title-task-detail");
+
+    const formDivTaskDescriptionDetail = document.createElement("div");
+    formDivTaskDescriptionDetail.classList.add("form-div-task-detail");
+    const labelTaskDescriptionDetail = document.createElement("label");
+    labelTaskDescriptionDetail.classList.add("label-description-task");
+    labelTaskDescriptionDetail.setAttribute("for", "description-task");
+    labelTaskDescriptionDetail.textContent = "Description";
+    const inputTaskDescriptionDetail = document.createElement("input");
+    inputTaskDescriptionDetail.setAttribute("id", "description-task");
+    inputTaskDescriptionDetail.setAttribute("type", "text");
+    inputTaskDescriptionDetail.setAttribute("name", "description-task");
+
+    const formDivTaskDueDateDetail = document.createElement("div");
+    formDivTaskDueDateDetail.classList.add("form-div");
+    const labelTaskDueDateDetail = document.createElement("label");
+    labelTaskDueDateDetail.classList.add("label-dueDate-task");
+    labelTaskDueDateDetail.setAttribute("for", "dueDate-task");
+    labelTaskDueDateDetail.textContent = "dueDate";
+    const inputTaskDueDateDetail = document.createElement("input");
+    inputTaskDueDateDetail.setAttribute("id", "dueDate-task");
+    // inputTaskDueDateDetail.setAttribute("min", format(today, "yyyy-mm-dd"));
+    inputTaskDueDateDetail.setAttribute("type", "date");
+    inputTaskDueDateDetail.setAttribute("name", "dueDate-task");
+
+    const formDivTaskPriorityDetail = document.createElement("div");
+    formDivTaskPriorityDetail.classList.add("form-div");
+    const labelTaskPriorityDetail = document.createElement("label");
+    labelTaskPriorityDetail.classList.add("label-priority-task");
+    labelTaskPriorityDetail.setAttribute("for", "priority-task");
+    labelTaskPriorityDetail.textContent = "Priority";
+    const selectTaskPriorityDetail = document.createElement("select");
+    selectTaskPriorityDetail.setAttribute("id", "priority-task");
+    selectTaskPriorityDetail.setAttribute("name", "priority");
+    const lowOptionTaskPriorityDetail = document.createElement("option");
+    lowOptionTaskPriorityDetail.classList.add("option-priority-task");
+    lowOptionTaskPriorityDetail.setAttribute("value", "low");
+    lowOptionTaskPriorityDetail.textContent = "Low";
+    const mediumOptionTaskPriorityDetail = document.createElement("option");
+    mediumOptionTaskPriorityDetail.classList.add("option-priority-task");
+    mediumOptionTaskPriorityDetail.setAttribute("value", "medium");
+    mediumOptionTaskPriorityDetail.textContent = "Medium";
+    const highOptionTaskPriorityDetail = document.createElement("option");
+    highOptionTaskPriorityDetail.classList.add("option-priority-task");
+    highOptionTaskPriorityDetail.setAttribute("value", "high");
+    highOptionTaskPriorityDetail.textContent = "High";
+
+    const btnSectionTask = document.createElement("section");
+    btnSectionTask.classList.add("btn-section-edit-task");
+    const btnCloseModalTask = document.createElement("button");
+    btnCloseModalTask.setAttribute("id", "close-modal-edit-task");
+    btnCloseModalTask.setAttribute("type", "button");
+    btnCloseModalTask.textContent = "Cancel";
+    const btnRenameTask = document.createElement("button");
+    btnRenameTask.setAttribute("id", "btn-rename-task");
+    btnRenameTask.setAttribute("type", "submit");
+    btnRenameTask.textContent = "Rename";
+
+    btnCloseModalTask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dialogListElement = document.querySelector("#dialog-task-detail");
+        dialogListElement.close();
+    });
+
+    btnRenameTask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const taskNameEditTask = document.querySelector("#title-task-detail").value;
+        const bodyContent = document.querySelector("#body-content");
+        bodyContent.textContent = "";
+        console.log(taskNameEditTask);
+        editTask(list, taskId, taskNameEditTask);
+        renderCardTaskItem(list)
+    });
+
+    selectTaskPriorityDetail.appendChild(lowOptionTaskPriorityDetail);
+    selectTaskPriorityDetail.appendChild(mediumOptionTaskPriorityDetail);
+    selectTaskPriorityDetail.appendChild(highOptionTaskPriorityDetail);
+
+    formDivTaskTitleDetail.appendChild(labelTitleTaskDetail);
+    formDivTaskTitleDetail.appendChild(inputTaskDetail);
+    inputSectionTaskDetail.appendChild(formDivTaskTitleDetail);
+
+    formDivTaskDescriptionDetail.appendChild(labelTaskDescriptionDetail);
+    formDivTaskDescriptionDetail.appendChild(inputTaskDescriptionDetail);
+    inputSectionTaskDetail.appendChild(formDivTaskDescriptionDetail);
+
+    formDivTaskDueDateDetail.appendChild(labelTaskDueDateDetail);
+    formDivTaskDueDateDetail.appendChild(inputTaskDueDateDetail);
+    inputSectionTaskDetail.appendChild(formDivTaskDueDateDetail);
+
+    formDivTaskPriorityDetail.appendChild(labelTaskPriorityDetail);
+    formDivTaskPriorityDetail.appendChild(selectTaskPriorityDetail);
+    inputSectionTaskDetail.appendChild(formDivTaskPriorityDetail);
+
+    formTaskDetail.appendChild(inputSectionTaskDetail);
+    btnSectionTask.appendChild(btnCloseModalTask);
+    btnSectionTask.appendChild(btnRenameTask);
+    formTaskDetail.appendChild(btnSectionTask);
+    containerFormTaskDetail.appendChild(formTaskDetail);
+    dialogTaskDetail.appendChild(containerFormTaskDetail);
+    parentNode.appendChild(dialogTaskDetail);
+};
+
+function viewTaskDetail(currentTask) {
+    const taskTitle = document.querySelector("#title-task-detail");
+    taskTitle.value = currentTask.title;
+}
 
 function renderDialogEditTask(parentNode, list, taskId) {
     const dialogTask = document.createElement("dialog");
@@ -534,5 +664,7 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// design UI card task
-// lalu tambahakan fitur checklist
+// dialog task detail samakan dengan dialog add item
+
+// jika card task diklik maka akan muncul detail
+// dari task tersebut
