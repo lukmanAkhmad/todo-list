@@ -442,9 +442,11 @@ function createCardTaskItem(list) {
         btnEditTaskItem.addEventListener("click", (e) => {
             console.log("btn edit task onclick");
             e.preventDefault();
-            renderDialogEditTask(bodyContent, list, currentTaskItemId);
-            const dialogList = document.querySelector("#dialog-edit-task");
-            dialogList.showModal();
+            renderDialogTaskDetail(bodyContent, list, currentTaskItemId);
+            const currentTask = getTask(taskItem, currentTaskItemId);
+            showTaskDetail(currentTask);
+            const dialogTaskDetail = document.querySelector("#dialog-task-detail");
+            dialogTaskDetail.showModal();
         });
 
         btnDeleteTaskItem.addEventListener("click", () => {
