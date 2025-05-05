@@ -513,7 +513,6 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     labelTaskDueDateDetail.textContent = "dueDate";
     const inputTaskDueDateDetail = document.createElement("input");
     inputTaskDueDateDetail.setAttribute("id", "dueDate-task-detail");
-    // inputTaskDueDateDetail.setAttribute("min", format(today, "yyyy-mm-dd"));
     inputTaskDueDateDetail.setAttribute("type", "date");
     inputTaskDueDateDetail.setAttribute("name", "dueDate-task-detail");
 
@@ -539,24 +538,24 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     highOptionTaskPriorityDetail.setAttribute("value", "high");
     highOptionTaskPriorityDetail.textContent = "High";
 
-    const btnSectionTask = document.createElement("section");
-    btnSectionTask.classList.add("btn-section-edit-task");
-    const btnCloseModalTask = document.createElement("button");
-    btnCloseModalTask.setAttribute("id", "close-modal-edit-task");
-    btnCloseModalTask.setAttribute("type", "button");
-    btnCloseModalTask.textContent = "Cancel";
-    const btnRenameTask = document.createElement("button");
-    btnRenameTask.setAttribute("id", "btn-rename-task");
-    btnRenameTask.setAttribute("type", "submit");
-    btnRenameTask.textContent = "Rename";
+    const btnSectionTaskDetail = document.createElement("section");
+    btnSectionTaskDetail.classList.add("btn-section-edit-task");
+    const btnCloseModalTaskDetail = document.createElement("button");
+    btnCloseModalTaskDetail.setAttribute("id", "close-modal-edit-task");
+    btnCloseModalTaskDetail.setAttribute("type", "button");
+    btnCloseModalTaskDetail.textContent = "Cancel";
+    const btnRenameTaskDetail = document.createElement("button");
+    btnRenameTaskDetail.setAttribute("id", "btn-rename-task");
+    btnRenameTaskDetail.setAttribute("type", "submit");
+    btnRenameTaskDetail.textContent = "Rename";
 
-    btnCloseModalTask.addEventListener("click", (e) => {
+    btnCloseModalTaskDetail.addEventListener("click", (e) => {
         e.preventDefault();
         const dialogListElement = document.querySelector("#dialog-task-detail");
         dialogListElement.close();
     });
 
-    btnRenameTask.addEventListener("click", (e) => {
+    btnRenameTaskDetail.addEventListener("click", (e) => {
         e.preventDefault();
         const taskNameEditTask = document.querySelector("#title-task-detail").value;
         const bodyContent = document.querySelector("#body-content");
@@ -587,9 +586,9 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     inputSectionTaskDetail.appendChild(formDivTaskPriorityDetail);
 
     formTaskDetail.appendChild(inputSectionTaskDetail);
-    btnSectionTask.appendChild(btnCloseModalTask);
-    btnSectionTask.appendChild(btnRenameTask);
-    formTaskDetail.appendChild(btnSectionTask);
+    btnSectionTaskDetail.appendChild(btnCloseModalTaskDetail);
+    btnSectionTaskDetail.appendChild(btnRenameTaskDetail);
+    formTaskDetail.appendChild(btnSectionTaskDetail);
     containerFormTaskDetail.appendChild(formTaskDetail);
     dialogTaskDetail.appendChild(containerFormTaskDetail);
     parentNode.appendChild(dialogTaskDetail);
@@ -675,3 +674,4 @@ export { renderScreen };
 
 // organisasikan nama class dan nama id
 // dan nama variabel/const nya
+// Standartnya seperti renderDialogEditList
