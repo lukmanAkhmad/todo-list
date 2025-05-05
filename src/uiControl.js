@@ -456,7 +456,7 @@ function createCardTaskItem(list) {
             console.log("card taskList on click");
             renderDialogTaskDetail(bodyContent, list, currentTaskItemId);
             const currentTask = getTask(taskItem, currentTaskItemId);
-            viewTaskDetail(currentTask);
+            showTaskDetail(currentTask);
             const dialogTask = document.querySelector("#dialog-task-detail");
             dialogTask.showModal();
         });
@@ -594,7 +594,7 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     parentNode.appendChild(dialogTaskDetail);
 };
 
-function viewTaskDetail(currentTask) {
+function showTaskDetail(currentTask) {
     const taskTitle = document.querySelector("#title-task-detail");
     taskTitle.value = currentTask.title;
 
