@@ -606,7 +606,7 @@ function showTaskDetail(currentTask) {
 
     const taskPriority = document.querySelector("#priority-task-detail");
     taskPriority.value = currentTask.priority;
-}
+};
 
 function renderDialogEditTask(parentNode, list, taskId) {
     const dialogTask = document.createElement("dialog");
