@@ -482,6 +482,7 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     containerFormTaskDetail.setAttribute("id", "container-form-task-detail");
     const formTaskDetail = document.createElement("form");
     formTaskDetail.setAttribute("action", "");
+    formTaskDetail.setAttribute("id","form-task-detail");
     const inputSectionTaskDetail = document.createElement("section");
     inputSectionTaskDetail.classList.add("input-section-task-detail");
 
@@ -502,13 +503,13 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     labelTaskDescriptionDetail.classList.add("label-description-task-detail");
     labelTaskDescriptionDetail.setAttribute("for", "description-task-detail");
     labelTaskDescriptionDetail.textContent = "Description";
-    const inputTaskDescriptionDetail = document.createElement("input");
+    const inputTaskDescriptionDetail = document.createElement("textarea");
     inputTaskDescriptionDetail.setAttribute("id", "description-task-detail");
     inputTaskDescriptionDetail.setAttribute("type", "text");
     inputTaskDescriptionDetail.setAttribute("name", "description-task-detail");
 
     const formDivTaskDueDateDetail = document.createElement("div");
-    formDivTaskDueDateDetail.classList.add("form-div");
+    formDivTaskDueDateDetail.classList.add("form-div-task-detail");
     const labelTaskDueDateDetail = document.createElement("label");
     labelTaskDueDateDetail.classList.add("label-dueDate-task-detail");
     labelTaskDueDateDetail.setAttribute("for", "dueDate-task-detail");
@@ -519,7 +520,7 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     inputTaskDueDateDetail.setAttribute("name", "dueDate-task-detail");
 
     const formDivTaskPriorityDetail = document.createElement("div");
-    formDivTaskPriorityDetail.classList.add("form-div");
+    formDivTaskPriorityDetail.classList.add("form-div-task-detail");
     const labelTaskPriorityDetail = document.createElement("label");
     labelTaskPriorityDetail.classList.add("label-priority-task-detail");
     labelTaskPriorityDetail.setAttribute("for", "priority-task-detail");
@@ -619,4 +620,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// bisa ngedit semua task detail
+// styling dialog task detail
