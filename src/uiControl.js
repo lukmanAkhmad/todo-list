@@ -518,7 +518,7 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     const labelTaskDueDateDetail = document.createElement("label");
     labelTaskDueDateDetail.classList.add("label-dueDate-task-detail");
     labelTaskDueDateDetail.setAttribute("for", "dueDate-task-detail");
-    labelTaskDueDateDetail.textContent = "dueDate";
+    labelTaskDueDateDetail.textContent = "Due Date";
     const inputTaskDueDateDetail = document.createElement("input");
     inputTaskDueDateDetail.setAttribute("id", "dueDate-task-detail");
     inputTaskDueDateDetail.setAttribute("type", "date");
@@ -559,8 +559,8 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
 
     btnCloseModalTaskDetail.addEventListener("click", (e) => {
         e.preventDefault();
-        const dialogListElement = document.querySelector("#dialog-task-detail");
-        dialogListElement.close();
+        const dialogTaskDetailll = document.querySelector("#dialog-task-detail");
+        dialogTaskDetailll.close();
     });
 
     btnSaveTaskDetail.addEventListener("click", (e) => {
