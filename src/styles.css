@@ -289,7 +289,12 @@ body {
     align-items: center;
     gap: 13px;
 }
-
+.card-list-name{
+    width: 345px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .container-name-and-dueDate-task {
     display: flex;
     justify-content: space-between;
