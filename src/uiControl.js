@@ -258,56 +258,62 @@ function createHeaderContent(list) {
 function renderDialogAddItem(parentNode, listId) {
     const dialogAddItem = document.createElement("dialog");
     dialogAddItem.setAttribute("id", "dialog-add-item");
+    const headerDialogAddItem = document.createElement("div");
+    headerDialogAddItem.classList.add("header-dialog-add-item");
+    const txtHeaderDialogAddItem = document.createElement("h1");
+    txtHeaderDialogAddItem.classList.add("txt-header-dialog-add-item");
+    txtHeaderDialogAddItem.textContent = "Add Task Item";
     const containerFormAddItem = document.createElement("div");
     containerFormAddItem.setAttribute("id", "container-form-add-item");
     const formAddItem = document.createElement("form");
     formAddItem.setAttribute("action", "");
+    formAddItem.setAttribute("id", "form-add-item");
     const inputSectionAddItem = document.createElement("section");
     inputSectionAddItem.classList.add("input-section-add-item");
 
     const formDivTitleTask = document.createElement("div");
-    formDivTitleTask.classList.add("form-div");
+    formDivTitleTask.classList.add("form-div-add-item");
     const labelTitleTask = document.createElement("label");
-    labelTitleTask.classList.add("label-title-task");
+    labelTitleTask.classList.add("label-title-add-item");
     labelTitleTask.setAttribute("for", "title-task");
     labelTitleTask.textContent = "Title";
     const inputTitleTask = document.createElement("input");
-    inputTitleTask.setAttribute("id", "title-task");
+    inputTitleTask.setAttribute("id", "title-task-add-item");
     inputTitleTask.setAttribute("type", "text");
     inputTitleTask.setAttribute("name", "title-task");
 
     const formDivDescriptionTask = document.createElement("div");
-    formDivDescriptionTask.classList.add("form-div");
+    formDivDescriptionTask.classList.add("form-div-add-item");
     const labelDescriptionTask = document.createElement("label");
-    labelDescriptionTask.classList.add("label-description-task");
+    labelDescriptionTask.classList.add("label-description-add-item");
     labelDescriptionTask.setAttribute("for", "description-task");
     labelDescriptionTask.textContent = "Description";
-    const inputDescriptionTask = document.createElement("input");
-    inputDescriptionTask.setAttribute("id", "description-task");
+    const inputDescriptionTask = document.createElement("textarea");
+    inputDescriptionTask.setAttribute("id", "description-task-add-item");
     inputDescriptionTask.setAttribute("type", "text");
     inputDescriptionTask.setAttribute("name", "description-task");
 
     const today = new Date();
     const formDivDueDateTask = document.createElement("div");
-    formDivDueDateTask.classList.add("form-div");
+    formDivDueDateTask.classList.add("form-div-add-item");
     const labelDueDateTask = document.createElement("label");
-    labelDueDateTask.classList.add("label-dueDate-task");
+    labelDueDateTask.classList.add("label-dueDate-add-item");
     labelDueDateTask.setAttribute("for", "dueDate-task");
     labelDueDateTask.textContent = "dueDate";
     const inputDueDateTask = document.createElement("input");
-    inputDueDateTask.setAttribute("id", "dueDate-task");
+    inputDueDateTask.setAttribute("id", "dueDate-task-add-item");
     inputDueDateTask.setAttribute("min", format(today, "yyyy-mm-dd"));
     inputDueDateTask.setAttribute("type", "date");
     inputDueDateTask.setAttribute("name", "dueDate-task");
 
     const formDivPriorityTask = document.createElement("div");
-    formDivPriorityTask.classList.add("form-div");
+    formDivPriorityTask.classList.add("form-div-add-item");
     const labelPriorityTask = document.createElement("label");
-    labelPriorityTask.classList.add("label-priority-task");
+    labelPriorityTask.classList.add("label-priority-add-item");
     labelPriorityTask.setAttribute("for", "priority-task");
     labelPriorityTask.textContent = "Priority";
     const selectPriorityTask = document.createElement("select");
-    selectPriorityTask.setAttribute("id", "priority-task");
+    selectPriorityTask.setAttribute("id", "priority-task-add-item");
     selectPriorityTask.setAttribute("name", "priority");
     const lowOptionPriorityTask = document.createElement("option");
     lowOptionPriorityTask.classList.add("option-priority-task");
@@ -325,11 +331,11 @@ function renderDialogAddItem(parentNode, listId) {
     const btnSectionAddItem = document.createElement("section");
     btnSectionAddItem.classList.add("btn-section-add-item");
     const btnCloseModalAddItem = document.createElement("button");
-    btnCloseModalAddItem.setAttribute("id", "close-modal-add-item");
+    btnCloseModalAddItem.setAttribute("id", "btn-close-modal-add-item");
     btnCloseModalAddItem.setAttribute("type", "button");
     btnCloseModalAddItem.textContent = "Cancel";
     const btnAddTask = document.createElement("button");
-    btnAddTask.setAttribute("id", "add-task");
+    btnAddTask.setAttribute("id", "btn-submit-add-item");
     btnAddTask.setAttribute("type", "submit");
     btnAddTask.textContent = "Add Task";
 
@@ -337,17 +343,19 @@ function renderDialogAddItem(parentNode, listId) {
         e.preventDefault();
         const dialogAddItemElement = document.querySelector("#dialog-add-item");
         dialogAddItemElement.close();
+        formAddItem.reset();
     });
 
     btnAddTask.addEventListener("click", (e) => {
         e.preventDefault();
-        const titlTask = document.querySelector("#title-task").value;
-        const descriptionTask = document.querySelector("#description-task").value;
-        const dueDateTask = document.querySelector("#dueDate-task").value;
-        const priorityTask = document.querySelector("#priority-task").value;
+        const titlTask = document.querySelector("#title-task-add-item").value;
+        const descriptionTask = document.querySelector("#description-task-add-item").value;
+        const dueDateTask = document.querySelector("#dueDate-task-add-item").value;
+        const priorityTask = document.querySelector("#priority-task-add-item").value;
         createTask(listId, titlTask, descriptionTask, dueDateTask, priorityTask);
         let findList = getList(listId);
         renderCardTaskItem(findList);
+        formAddItem.reset();
     });
 
     selectPriorityTask.appendChild(lowOptionPriorityTask);
@@ -370,7 +378,9 @@ function renderDialogAddItem(parentNode, listId) {
     btnSectionAddItem.appendChild(btnCloseModalAddItem);
     btnSectionAddItem.appendChild(btnAddTask);
     formAddItem.appendChild(btnSectionAddItem);
+    headerDialogAddItem.appendChild(txtHeaderDialogAddItem);
     containerFormAddItem.appendChild(formAddItem);
+    dialogAddItem.appendChild(headerDialogAddItem);
     dialogAddItem.appendChild(containerFormAddItem);
     parentNode.appendChild(dialogAddItem);
 };
@@ -627,4 +637,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling header content
+// dialog add item
+// jika telah di submit atau di cancel maka nilai input menjadi kosong
