@@ -221,8 +221,31 @@ body {
 
 
 #header-content {
-    background-color: honeydew;
+    background-color: #eeeeee;
     grid-row: 1 / 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 90px;
+}
+
+#btn-add-item {
+    height: 45px;
+    border: 3px solid var(--color-grey);
+    border-radius: 9px;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 155px;
+}
+
+#div-list-name {
+    width: 378px;
+    height: 45px;
+    font-size: 37px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #body-content {

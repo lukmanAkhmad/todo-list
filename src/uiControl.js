@@ -627,4 +627,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling dialog task detail
+// styling header content
