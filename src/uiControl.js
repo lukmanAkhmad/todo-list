@@ -478,11 +478,16 @@ function createCardTaskItem(list) {
 function renderDialogTaskDetail(parentNode, list, taskId) {
     const dialogTaskDetail = document.createElement("dialog");
     dialogTaskDetail.setAttribute("id", "dialog-task-detail");
+    const headerDialogTaskDetail = document.createElement("div");
+    headerDialogTaskDetail.classList.add("header-dialog-task-detail");
+    const txtHeaderDialogTaskDetail = document.createElement("h1");
+    txtHeaderDialogTaskDetail.classList.add("txt-header-dialog-task-detail")
+    txtHeaderDialogTaskDetail.textContent = "Task Detail"
     const containerFormTaskDetail = document.createElement("div");
     containerFormTaskDetail.setAttribute("id", "container-form-task-detail");
     const formTaskDetail = document.createElement("form");
     formTaskDetail.setAttribute("action", "");
-    formTaskDetail.setAttribute("id","form-task-detail");
+    formTaskDetail.setAttribute("id", "form-task-detail");
     const inputSectionTaskDetail = document.createElement("section");
     inputSectionTaskDetail.classList.add("input-section-task-detail");
 
@@ -544,7 +549,7 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     const btnSectionTaskDetail = document.createElement("section");
     btnSectionTaskDetail.classList.add("btn-section-task-detail");
     const btnCloseModalTaskDetail = document.createElement("button");
-    btnCloseModalTaskDetail.setAttribute("id", "close-modal-task-detail");
+    btnCloseModalTaskDetail.setAttribute("id", "btn-close-modal-task-detail");
     btnCloseModalTaskDetail.setAttribute("type", "button");
     btnCloseModalTaskDetail.textContent = "Cancel";
     const btnSaveTaskDetail = document.createElement("button");
@@ -595,7 +600,9 @@ function renderDialogTaskDetail(parentNode, list, taskId) {
     btnSectionTaskDetail.appendChild(btnCloseModalTaskDetail);
     btnSectionTaskDetail.appendChild(btnSaveTaskDetail);
     formTaskDetail.appendChild(btnSectionTaskDetail);
+    headerDialogTaskDetail.appendChild(txtHeaderDialogTaskDetail);
     containerFormTaskDetail.appendChild(formTaskDetail);
+    dialogTaskDetail.appendChild(headerDialogTaskDetail);
     dialogTaskDetail.appendChild(containerFormTaskDetail);
     parentNode.appendChild(dialogTaskDetail);
 };
