@@ -97,12 +97,94 @@ body {
     border: 0;
     border-radius: 9px;
     width: 473px;
-    height: 373px;
+    height: 219px;
     position: fixed;
-    z-index: 100;
-    left: 22%;
+    z-index: 1;
+    left: 39%;
     top: 30%;
-    box-shadow: 9px 9px 15px 1px #a9c121;
+
+}
+
+.header-dialog-edit-list {
+    background: var(--color-sky-and-sea);
+    height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.txt-header-dialog-edit-list {
+    color: white;
+}
+
+#container-form-edit-list {
+    display: flex;
+    justify-content: center;
+}
+
+.input-section-edit-list {
+    display: flex;
+    gap: 13px;
+    flex-direction: column;
+    width: 375px;
+}
+
+.btn-section-edit-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#btn-save-edit-list {
+    flex-grow: 1;
+    background: var(--color-sky-and-sea);
+    height: 30px;
+    border: 0;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 0px 5px 5px 0px;
+}
+
+#btn-close-modal-edit-list {
+    flex-grow: 1;
+    background: var(--color-sky-and-sea);
+    height: 30px;
+    border: 0;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.form-div-edit-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-list-name-edit-list {
+    font-size: 15px;
+}
+
+#list-name-edit-list {
+    width: inherit;
+    border: 1px solid var(--color-grey-input);
+    border-radius: 5px;
+    height: 30px;
+    font-size: 18px;
+    outline: none;
+}
+
+#list-name-edit-list:focus {
+    border: 1px solid blue;
+    box-shadow: 2px 3px 7px 0px grey;
+}
+
+#form-edit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 }
 
 #dialog-add-item {

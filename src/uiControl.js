@@ -1,4 +1,3 @@
-import { ca } from "date-fns/locale";
 import { lists, createList, deleteList, editList, getList } from "./list";
 import { createTask, deleteTask, editTask, completeTask, getTask } from "./task";
 import { format } from "date-fns";
@@ -152,7 +151,7 @@ function createCardList(parentNode) {
                 elem.classList.remove("card-list-active");
             });
             cardListName.classList.add("card-list-active");
-            
+
             let findList = getList(currentListId);
             createHeaderContent(findList);
             createCardTaskItem(findList);
@@ -170,12 +169,19 @@ function createCardList(parentNode) {
 function renderDialogEditList(parentNode, listId) {
     const dialogList = document.createElement("dialog");
     dialogList.setAttribute("id", "dialog-edit-list");
+    const headerDialogEditList = document.createElement("div");
+    headerDialogEditList.classList.add("header-dialog-edit-list");
+    const txtHeaderDialogAddItem = document.createElement("h1");
+    txtHeaderDialogAddItem.classList.add("txt-header-dialog-edit-list");
+    txtHeaderDialogAddItem.textContent = "Edit List";
     const containerFormList = document.createElement("div");
     containerFormList.setAttribute("id", "container-form-edit-list");
     const formList = document.createElement("form");
     formList.setAttribute("action", "");
+    formList.setAttribute("id", "form-edit-list");
     const inputSectionList = document.createElement("section");
-    inputSectionList.classList.add("section-input-edit-list");
+    inputSectionList.classList.add("input-section-edit-list");
+
     const formDivList = document.createElement("div");
     formDivList.classList.add("form-div-edit-list");
     const labelList = document.createElement("label");
@@ -188,15 +194,15 @@ function renderDialogEditList(parentNode, listId) {
     inputList.setAttribute("name", "list-name-edit-list");
 
     const btnSectionList = document.createElement("section");
-    btnSectionList.classList.add("section-btn-edit-list");
+    btnSectionList.classList.add("btn-section-edit-list");
     const btnCloseModalList = document.createElement("button");
     btnCloseModalList.setAttribute("id", "btn-close-modal-edit-list");
     btnCloseModalList.setAttribute("type", "button");
     btnCloseModalList.textContent = "Cancel";
     const btnRenameList = document.createElement("button");
-    btnRenameList.setAttribute("id", "btn-rename-list-edit-list");
+    btnRenameList.setAttribute("id", "btn-save-edit-list");
     btnRenameList.setAttribute("type", "submit");
-    btnRenameList.textContent = "Rename";
+    btnRenameList.textContent = "Save";
 
     btnCloseModalList.addEventListener("click", (e) => {
         e.preventDefault();
@@ -220,7 +226,9 @@ function renderDialogEditList(parentNode, listId) {
     btnSectionList.appendChild(btnCloseModalList);
     btnSectionList.appendChild(btnRenameList);
     formList.appendChild(btnSectionList);
+    headerDialogEditList.appendChild(txtHeaderDialogAddItem);
     containerFormList.appendChild(formList);
+    dialogList.appendChild(headerDialogEditList);
     dialogList.appendChild(containerFormList);
     parentNode.appendChild(dialogList);
 };
@@ -647,5 +655,4 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling card list
-// ketika card list di klik text akan ada underline-nya dan berubah warna
+// styling dialog edit list
