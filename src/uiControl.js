@@ -176,8 +176,8 @@ function createCardList(parentNode) {
 };
 
 function renderDialogEditList(parentNode, listId) {
-    const dialogList = document.createElement("dialog");    // ganti nama variabel
-    dialogList.setAttribute("id", "dialog-edit-list");
+    const dialogEditList = document.createElement("dialog");
+    dialogEditList.setAttribute("id", "dialog-edit-list");
     const headerDialogEditList = document.createElement("div");
     headerDialogEditList.classList.add("header-dialog-edit-list");
     const txtHeaderDialogAddItem = document.createElement("h1");
@@ -237,9 +237,9 @@ function renderDialogEditList(parentNode, listId) {
     formList.appendChild(btnSectionList);
     headerDialogEditList.appendChild(txtHeaderDialogAddItem);
     containerFormList.appendChild(formList);
-    dialogList.appendChild(headerDialogEditList);
-    dialogList.appendChild(containerFormList);
-    parentNode.appendChild(dialogList);
+    dialogEditList.appendChild(headerDialogEditList);
+    dialogEditList.appendChild(containerFormList);
+    parentNode.appendChild(dialogEditList);
 };
 
 function renderCardList() {
