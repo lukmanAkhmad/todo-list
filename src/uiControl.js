@@ -1,3 +1,4 @@
+import { ca } from "date-fns/locale";
 import { lists, createList, deleteList, editList, getList } from "./list";
 import { createTask, deleteTask, editTask, completeTask, getTask } from "./task";
 import { format } from "date-fns";
@@ -108,13 +109,16 @@ function renderDialogList(parentNode) {
 function createCardList(parentNode) {
     lists.forEach((val) => {
         const card = document.createElement("div");
-        card.classList.add("cards");
+        card.classList.add("card-list");
+        const subCardList = document.createElement("div");
+        subCardList.classList.add("sub-card-list");
         const cardListName = document.createElement("p");
         cardListName.classList.add("card-list-name");
         cardListName.textContent = val.name;
 
         const currentListId = val.id;
-
+        const btnContainerCardList = document.createElement("div");
+        btnContainerCardList.classList.add("btn-container-card-list");
         const btnEditList = document.createElement("button");
         btnEditList.classList.add("btn-edit-list");
         btnEditList.setAttribute("type", "button");
@@ -143,16 +147,22 @@ function createCardList(parentNode) {
         });
 
         card.addEventListener("click", () => {
-            console.log("card on click");
-            console.log(`id list = ${currentListId}`);
+            const cardListsName = document.querySelectorAll(".card-list-active");
+            cardListsName.forEach((elem) => {
+                elem.classList.remove("card-list-active");
+            });
+            cardListName.classList.add("card-list-active");
+            
             let findList = getList(currentListId);
             createHeaderContent(findList);
             createCardTaskItem(findList);
         });
 
-        card.appendChild(cardListName);
-        card.appendChild(btnEditList);
-        card.appendChild(btnDeleteList);
+        btnContainerCardList.appendChild(btnEditList);
+        btnContainerCardList.appendChild(btnDeleteList);
+        subCardList.appendChild(cardListName);
+        subCardList.appendChild(btnContainerCardList);
+        card.appendChild(subCardList);
         parentNode.appendChild(card);
     });
 };
@@ -414,7 +424,7 @@ function createCardTaskItem(list) {
         const containerNameAndDueDate = document.createElement("div");
         containerNameAndDueDate.classList.add("container-name-and-dueDate-task");
         const cardListName = document.createElement("p");
-        cardListName.classList.add("card-list-name");
+        cardListName.classList.add("card-task-name");
         cardListName.textContent = val.title;
         const dueDateTask = document.createElement("p");
         dueDateTask.classList.add("dueDate-task");
@@ -637,5 +647,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// dialog add item
-// jika telah di submit atau di cancel maka nilai input menjadi kosong
+// styling card list
+// ketika card list di klik text akan ada underline-nya dan berubah warna
