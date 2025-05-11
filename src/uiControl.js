@@ -294,7 +294,7 @@ function renderDialogAddItem(parentNode, listId) {
     const labelTitleTask = document.createElement("label");
     labelTitleTask.classList.add("label-title-add-item");
     labelTitleTask.setAttribute("for", "title-task");
-    labelTitleTask.textContent = "Title";
+    labelTitleTask.textContent = "Task Name";
     const inputTitleTask = document.createElement("input");
     inputTitleTask.setAttribute("id", "title-task-add-item");
     inputTitleTask.setAttribute("type", "text");
@@ -317,7 +317,7 @@ function renderDialogAddItem(parentNode, listId) {
     const labelDueDateTask = document.createElement("label");
     labelDueDateTask.classList.add("label-dueDate-add-item");
     labelDueDateTask.setAttribute("for", "dueDate-task");
-    labelDueDateTask.textContent = "dueDate";
+    labelDueDateTask.textContent = "Due Date";
     const inputDueDateTask = document.createElement("input");
     inputDueDateTask.setAttribute("id", "dueDate-task-add-item");
     inputDueDateTask.setAttribute("min", format(today, "yyyy-mm-dd"));
