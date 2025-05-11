@@ -59,6 +59,7 @@ function renderDialogCreateList(parentNode) {
     containerFormList.setAttribute("id", "container-form-create-list");
     const formList = document.createElement("form");
     formList.setAttribute("action", "");
+    formList.setAttribute("id", "form-create-list");
     const inputSectionList = document.createElement("section");
     inputSectionList.classList.add("input-section-create-list");
 
