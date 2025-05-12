@@ -58,9 +58,21 @@ body {
     width: 75px;
     height: 75px;
 }
-.name-app{
+
+.name-app {
     font-size: 30px;
 }
+
+#btn-new-list {
+    height: 45px;
+    border: 3px solid var(--color-grey);
+    border-radius: 9px;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 95px;
+}
+
 .container-todolist {
     display: flex;
     flex-direction: column;

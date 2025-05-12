@@ -35,9 +35,10 @@ function renderSidebar(parentNode) {
     paraSidebar.classList.add("p-sidebar");
     paraSidebar.textContent = "My Lists";
 
-    const sidebarBtn = document.createElement("button");
-    sidebarBtn.textContent = "Sidebar Button";
-    sidebarBtn.addEventListener("click", () => {
+    const btnNewList = document.createElement("button");
+    btnNewList.setAttribute("id", "btn-new-list");
+    btnNewList.textContent = "New List";
+    btnNewList.addEventListener("click", () => {
         const dialogElement = document.querySelector("#dialog-create-list");
         dialogElement.showModal();
     });
@@ -47,7 +48,7 @@ function renderSidebar(parentNode) {
     containerTodolist.textContent = "Todo list Container";
 
     containerBtnSidebar.appendChild(paraSidebar);
-    containerBtnSidebar.appendChild(sidebarBtn);
+    containerBtnSidebar.appendChild(btnNewList);
 
     headerSidebar.appendChild(logoIconImg);
     headerSidebar.appendChild(nameApp);
