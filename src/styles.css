@@ -73,6 +73,10 @@ body {
     width: 95px;
 }
 
+.para-sidebar {
+    font-size: 23px;
+}
+
 .container-todolist {
     display: flex;
     flex-direction: column;

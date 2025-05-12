@@ -32,7 +32,7 @@ function renderSidebar(parentNode) {
     const containerBtnSidebar = document.createElement("div");
     containerBtnSidebar.classList.add("container-button-sidebar");
     const paraSidebar = document.createElement("p");
-    paraSidebar.classList.add("p-sidebar");
+    paraSidebar.classList.add("para-sidebar");
     paraSidebar.textContent = "My Lists";
 
     const btnNewList = document.createElement("button");
