@@ -61,6 +61,7 @@ body {
 
 .name-app {
     font-size: 30px;
+    color: var(--color-sea);
 }
 
 #btn-new-list {
