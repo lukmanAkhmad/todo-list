@@ -2,6 +2,8 @@ import { lists, createList, deleteList, editList, getList } from "./list";
 import { createTask, deleteTask, editTask, completeTask, getTask } from "./task";
 import { format } from "date-fns";
 
+import logoIcon from "./assets/img/logo-icon.svg";
+
 function renderScreen() {
     const body = document.querySelector("body");
     const divContainer = document.createElement("div");
@@ -17,7 +19,16 @@ function renderSidebar(parentNode) {
     sidebar.setAttribute("id", "sidebar")
     const headerSidebar = document.createElement("div");
     headerSidebar.classList.add("header-sidebar");
-    headerSidebar.textContent = "Header Sidebar";
+
+    const logoIconImg = document.createElement("img");
+    logoIconImg.src = logoIcon;
+    logoIconImg.classList.add("logo-icon");
+    logoIconImg.alt = "Todo List App Logo";
+
+    const nameApp = document.createElement("p");
+    nameApp.classList.add("name-app");
+    nameApp.textContent = "Todo List App";
+
     const containerBtnSidebar = document.createElement("div");
     containerBtnSidebar.classList.add("container-button-sidebar");
     const paraSidebar = document.createElement("p");
@@ -37,6 +48,9 @@ function renderSidebar(parentNode) {
 
     containerBtnSidebar.appendChild(paraSidebar);
     containerBtnSidebar.appendChild(sidebarBtn);
+
+    headerSidebar.appendChild(logoIconImg);
+    headerSidebar.appendChild(nameApp);
 
     sidebar.appendChild(headerSidebar);
     sidebar.appendChild(containerBtnSidebar);
@@ -664,4 +678,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling dialog edit list
+// styling header sidebar
+// add font family

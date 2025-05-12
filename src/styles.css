@@ -14,12 +14,20 @@
     --color-red: rgb(185, 58, 58);
     --clr-primary: rgb(54, 112, 199);
     --color-grey: #bbbbbb;
+    --color-grey-black: #eaeaea;
+    --color-grey-wthite: #eeeeee;
     --color-grey-input: #E5E7EB;
+}
+
+@font-face {
+    font-family: comic-font;
+    src: url(./assets/font/ComicRelief-Regular.ttf);
 }
 
 html,
 body {
     height: 100%;
+    font-family: comic-font, Arial, Helvetica, sans-serif;
 }
 
 #div-container {
@@ -31,14 +39,28 @@ body {
 }
 
 #sidebar {
-    background-color: dodgerblue;
+    background-color: var(--color-grey-black);
     grid-row: 1 / 4;
 
     display: grid;
-    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 5fr;
     padding: 0px 9px 0px 9px;
 }
 
+.header-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 75px;
+    height: 75px;
+}
+.name-app{
+    font-size: 30px;
+}
 .container-todolist {
     display: flex;
     flex-direction: column;
@@ -524,7 +546,7 @@ body {
 
 
 #header-content {
-    background-color: #eeeeee;
+    background-color: var(--color-grey-wthite);
     grid-row: 1 / 2;
     display: flex;
     justify-content: space-between;
@@ -553,7 +575,7 @@ body {
 
 #body-content {
     grid-row: 2 / 4;
-    background-color: #eeeeee;
+    background-color: var(--color-grey-wthite);
     display: flex;
     flex-direction: column;
     gap: 17px;
