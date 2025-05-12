@@ -45,7 +45,6 @@ function renderSidebar(parentNode) {
 
     const containerTodolist = document.createElement("div");
     containerTodolist.classList.add("container-todolist");
-    containerTodolist.textContent = "Todo list Container";
 
     containerBtnSidebar.appendChild(paraSidebar);
     containerBtnSidebar.appendChild(btnNewList);

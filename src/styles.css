@@ -43,7 +43,7 @@ body {
     grid-row: 1 / 4;
 
     display: grid;
-    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-rows: 2fr 1fr 7fr;
     padding: 0px 9px 0px 9px;
 }
 
