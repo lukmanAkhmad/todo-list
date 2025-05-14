@@ -107,6 +107,7 @@ function renderDialogCreateList(parentNode) {
         e.preventDefault();
         const dialogElement = document.querySelector("#dialog-create-list");
         dialogElement.close();
+        formList.reset();
     });
 
     btnCreateList.addEventListener("click", (e) => {
@@ -116,6 +117,7 @@ function renderDialogCreateList(parentNode) {
         containerTodolist.textContent = "";
         createList(listName);
         createCardList(containerTodolist);
+        formList.reset();
     });
 
     formDivList.appendChild(labelListName);
