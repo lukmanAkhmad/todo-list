@@ -1,6 +1,23 @@
 import { getFromLocalStorage, saveToLocalStorage } from "./localStorage";
 
-let lists = getFromLocalStorage() || [];
+let lists = getFromLocalStorage() ||
+    // Default Project or Default Lists
+    [
+        {
+            id: "1747263361307",
+            name: "Cat",
+            tasks: [
+                {
+                    complete: false,
+                    description: "With shampoo",
+                    dueDate: "2025-05-23",
+                    id: "1746674153408",
+                    priority: "medium",
+                    title: "Bathe the cat",
+                },
+            ],
+        },
+    ];
 
 function List(names) {
     let id = Date.now().toString();
