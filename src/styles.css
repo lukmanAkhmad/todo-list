@@ -77,6 +77,10 @@ body {
     width: 95px;
 }
 
+#btn-new-list:hover {
+    background-color: var(--color-green-hover);
+}
+
 .para-sidebar {
     font-size: 23px;
 }
