@@ -602,6 +602,10 @@ body {
     width: 155px;
 }
 
+#btn-add-item:hover {
+    background-color: var(--color-green-hover);
+}
+
 #div-list-name {
     width: 378px;
     height: 51px;
