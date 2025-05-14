@@ -592,7 +592,7 @@ body {
     padding: 0px 90px;
 }
 
-#btn-add-item {
+#btn-add-task {
     height: 51px;
     border: 3px solid var(--color-grey);
     border-radius: 9px;
@@ -602,7 +602,7 @@ body {
     width: 155px;
 }
 
-#btn-add-item:hover {
+#btn-add-task:hover {
     background-color: var(--color-green-hover);
 }
 

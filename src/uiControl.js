@@ -285,7 +285,7 @@ function createHeaderContent(list) {
     divListName.setAttribute("id", "div-list-name");
     divListName.textContent = list.name;
     const btnAddItem = document.createElement("button");
-    btnAddItem.setAttribute("id", "btn-add-item");
+    btnAddItem.setAttribute("id", "btn-add-task");
     btnAddItem.setAttribute("type", "submit");
     btnAddItem.textContent = "Add Task";
 
