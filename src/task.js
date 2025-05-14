@@ -1,4 +1,4 @@
-import { lists, getList, getListIndex } from "./list";
+import { lists, getList} from "./list";
 import { saveToLocalStorage } from "./localStorage";
 
 function Task(titleTask, descriptions, dueDates, prioritys) {
