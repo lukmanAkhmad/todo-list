@@ -624,6 +624,10 @@ body {
     align-items: center;
 }
 
+.para-body-content{
+    font-size: 19px;
+}
+
 .cards-task {
     border: 3px solid var(--color-grey);
     display: flex;

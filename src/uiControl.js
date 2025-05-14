@@ -435,8 +435,11 @@ function renderDialogAddTask(parentNode, listId) {
 function renderBodyContent(parentNode) {
     const bodyContent = document.createElement("div");
     bodyContent.setAttribute("id", "body-content");
-    bodyContent.textContent = "Body Content";
+    const paraBodyContent = document.createElement("p");
+    paraBodyContent.classList.add("para-body-content");
+    paraBodyContent.textContent = "Click an existing list to see tasks.";
 
+    bodyContent.appendChild(paraBodyContent);
     parentNode.appendChild(bodyContent);
 };
 
