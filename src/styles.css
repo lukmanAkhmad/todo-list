@@ -100,18 +100,18 @@ body {
     border: 3px solid var(--color-grey);
 }
 
-.edit-icon-img,
-.delete-icon-img {
+.edit-icon-img-list,
+.delete-icon-img-list {
     width: 24px;
     height: 24px;
     border-radius: 3px;
 }
 
-.edit-icon-img:hover {
+.edit-icon-img-list:hover {
     background-color: var(--color-green-hover);
 }
 
-.delete-icon-img:hover {
+.delete-icon-img-list:hover {
     background-color: var(--color-red-hover);
 }
 

@@ -148,26 +148,26 @@ function createCardList(parentNode) {
         const btnContainerCardList = document.createElement("div");
         btnContainerCardList.classList.add("btn-container-card-list");
 
-        const imgEditIcon = document.createElement("img");
-        imgEditIcon.classList.add("edit-icon-img");
-        imgEditIcon.src = editIcon;
-        imgEditIcon.alt = "Edit icon";
-        imgEditIcon.title = "Edit icon";
+        const imgEditIconList = document.createElement("img");
+        imgEditIconList.classList.add("edit-icon-img-list");
+        imgEditIconList.src = editIcon;
+        imgEditIconList.alt = "Edit icon";
+        imgEditIconList.title = "Edit icon";
 
-        const imgDeleteIcon = document.createElement("img");
-        imgDeleteIcon.classList.add("delete-icon-img");
-        imgDeleteIcon.src = deleteIcon;
-        imgDeleteIcon.alt = "Delete icon";
-        imgDeleteIcon.title = "Delete icon";
+        const imgDeleteIconList = document.createElement("img");
+        imgDeleteIconList.classList.add("delete-icon-img-list");
+        imgDeleteIconList.src = deleteIcon;
+        imgDeleteIconList.alt = "Delete icon";
+        imgDeleteIconList.title = "Delete icon";
 
-        imgEditIcon.addEventListener("click", (e) => {
+        imgEditIconList.addEventListener("click", (e) => {
             e.preventDefault();
             renderDialogEditList(parentNode, currentListId);
             const dialogList = document.querySelector("#dialog-edit-list");
             dialogList.showModal();
         });
 
-        imgDeleteIcon.addEventListener("click", () => {
+        imgDeleteIconList.addEventListener("click", () => {
             deleteList(currentListId);
             renderCardList();
             const headerContainer = document.querySelector("#header-content");
@@ -188,8 +188,8 @@ function createCardList(parentNode) {
             createCardTaskItem(findList);
         });
 
-        btnContainerCardList.appendChild(imgEditIcon);
-        btnContainerCardList.appendChild(imgDeleteIcon);
+        btnContainerCardList.appendChild(imgEditIconList);
+        btnContainerCardList.appendChild(imgDeleteIconList);
         subCardList.appendChild(cardListName);
         subCardList.appendChild(btnContainerCardList);
         card.appendChild(subCardList);
@@ -682,6 +682,3 @@ function renderCardTaskItem(list) {
 };
 
 export { renderScreen };
-
-// styling card task
-// button and checkbox
