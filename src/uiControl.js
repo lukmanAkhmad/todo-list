@@ -24,6 +24,8 @@ function renderSidebar(parentNode) {
 
     const imgLogoIcon = document.createElement("img");
     imgLogoIcon.src = logoIcon;
+    imgLogoIcon.alt = "Logo Todo List App";
+    imgLogoIcon.title = "Logo Todo List App";
     imgLogoIcon.classList.add("logo-icon");
     imgLogoIcon.alt = "Todo List App Logo";
 
