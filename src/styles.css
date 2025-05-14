@@ -328,7 +328,7 @@ body {
     gap: 35px;
 }
 
-#dialog-add-item {
+#dialog-add-task {
     border: 0;
     border-radius: 9px;
     width: 473px;
@@ -339,7 +339,7 @@ body {
     top: 30%;
 }
 
-.header-dialog-add-item {
+.header-dialog-add-task {
     background: var(--color-sky-and-sea);
     height: 67px;
     display: flex;
@@ -348,29 +348,29 @@ body {
     margin-bottom: 15px;
 }
 
-.txt-header-dialog-add-item {
+.txt-header-dialog-add-task {
     color: white;
 }
 
-#container-form-add-item {
+#container-form-add-task {
     display: flex;
     justify-content: center;
 }
 
-.input-section-add-item {
+.input-section-add-task {
     display: flex;
     gap: 13px;
     flex-direction: column;
     width: 375px;
 }
 
-.btn-section-add-item {
+.btn-section-add-task {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-#btn-submit-add-item {
+#btn-submit-add-task {
     flex-grow: 1;
     background: var(--color-sky-and-sea);
     height: 30px;
@@ -381,7 +381,7 @@ body {
     border-radius: 0px 5px 5px 0px;
 }
 
-#btn-close-modal-add-item {
+#btn-close-modal-add-task {
     flex-grow: 1;
     background: var(--color-sky-and-sea);
     height: 30px;
@@ -392,19 +392,19 @@ body {
     border-radius: 5px 0px 0px 5px;
 }
 
-.form-div-add-item {
+.form-div-add-task {
     display: flex;
     flex-direction: column;
 }
 
-.label-title-add-item,
-.label-description-add-item,
-.label-dueDate-add-item,
-.label-priority-add-item {
+.label-title-add-task,
+.label-description-add-task,
+.label-dueDate-add-task,
+.label-priority-add-task {
     font-size: 15px;
 }
 
-#title-task-add-item {
+#title-task-add-task {
     width: inherit;
     border: 1px solid var(--color-grey-input);
     border-radius: 5px;
@@ -413,7 +413,7 @@ body {
     outline: none;
 }
 
-#description-task-add-item {
+#description-task-add-task {
     font-size: 18px;
     border: 1px solid var(--color-grey-input);
     border-radius: 5px;
@@ -424,7 +424,7 @@ body {
     outline: none;
 }
 
-#dueDate-task-add-item {
+#dueDate-task-add-task {
     border: 1px solid var(--color-grey-input);
     border-radius: 5px;
     height: 30px;
@@ -432,7 +432,7 @@ body {
     outline: none;
 }
 
-#priority-task-add-item {
+#priority-task-add-task {
     border: 1px solid var(--color-grey-input);
     background-color: white;
     border-radius: 5px;
@@ -441,15 +441,15 @@ body {
     outline: none;
 }
 
-#title-task-add-item:focus,
-#description-task-add-item:focus,
-#dueDate-task-add-item:focus,
-#priority-task-add-item:focus {
+#title-task-add-task:focus,
+#description-task-add-task:focus,
+#dueDate-task-add-task:focus,
+#priority-task-add-task:focus {
     border: 1px solid blue;
     box-shadow: 2px 3px 7px 0px grey;
 }
 
-#form-add-item {
+#form-add-task {
     display: flex;
     flex-direction: column;
     gap: 35px;
