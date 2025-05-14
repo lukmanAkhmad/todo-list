@@ -487,12 +487,10 @@ function createCardTaskItem(list) {
             if (checkbox.checked === true) {
                 const completeStatus = true;
                 completeTask(list, currentTaskItemId, completeStatus);
-                console.log(`status complete ${val.complete}`);
             };
             if (checkbox.checked === false) {
                 const completeStatus = false;
                 completeTask(list, currentTaskItemId, completeStatus);
-                console.log(`status complete ${val.complete}`);
             };
         });
 
@@ -684,5 +682,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling button card list
-// button di ganti div => di dalem di tambahin icon
+// styling card task
+// button and checkbox
