@@ -273,7 +273,6 @@ function renderCardList() {
 function renderHeaderContent(parentNode) {
     const headerContainer = document.createElement("div");
     headerContainer.setAttribute("id", "header-content");
-    headerContainer.textContent = "Header Content";
 
     parentNode.appendChild(headerContainer);
 };

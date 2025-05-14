@@ -593,7 +593,7 @@ body {
 }
 
 #btn-add-item {
-    height: 45px;
+    height: 51px;
     border: 3px solid var(--color-grey);
     border-radius: 9px;
     background-color: white;
@@ -604,7 +604,7 @@ body {
 
 #div-list-name {
     width: 378px;
-    height: 45px;
+    height: 51px;
     font-size: 37px;
     white-space: nowrap;
     overflow: hidden;
