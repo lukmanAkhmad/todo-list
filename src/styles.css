@@ -734,3 +734,23 @@ input[type="checkbox"]:checked+.sub-card-task>.container-name-and-dueDate-task::
     -webkit-transform-origin: left;
     transform-origin: left;
 }
+
+.delete-icon-img-task {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+}
+
+.edit-icon-img-task {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+}
+
+.edit-icon-img-task:hover {
+    background-color: var(--color-green-hover);
+}
+
+.delete-icon-img-task:hover {
+    background-color: var(--color-red-hover);
+}

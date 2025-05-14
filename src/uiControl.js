@@ -474,14 +474,17 @@ function createCardTaskItem(list) {
         if (priorityLevel === "medium") priorityColor.className = "priority-color priority-color-yellow";
         if (priorityLevel === "high") priorityColor.className = "priority-color priority-color-red";
 
-        const btnEditTaskItem = document.createElement("button");
-        btnEditTaskItem.classList.add("btn-edit-task-item");
-        btnEditTaskItem.setAttribute("type", "button");
-        btnEditTaskItem.textContent = "Edit";
-        const btnDeleteTaskItem = document.createElement("button");
-        btnDeleteTaskItem.classList.add("btn-delete-list");
-        btnDeleteTaskItem.setAttribute("type", "button");
-        btnDeleteTaskItem.textContent = "Delete";
+        const imgEditIconTask = document.createElement("img");
+        imgEditIconTask.classList.add("edit-icon-img-task");
+        imgEditIconTask.src = editIcon;
+        imgEditIconTask.alt = "Edit icon";
+        imgEditIconTask.title = "Edit icon";
+
+        const imgDeleteIconTask = document.createElement("img");
+        imgDeleteIconTask.classList.add("delete-icon-img-task");
+        imgDeleteIconTask.src = deleteIcon;
+        imgDeleteIconTask.alt = "Delete icon";
+        imgDeleteIconTask.title = "Delete icon";
 
         checkbox.addEventListener("change", () => {
             if (checkbox.checked === true) {
@@ -494,8 +497,7 @@ function createCardTaskItem(list) {
             };
         });
 
-        btnEditTaskItem.addEventListener("click", (e) => {
-            console.log("btn edit task onclick");
+        imgEditIconTask.addEventListener("click", (e) => {
             e.preventDefault();
             renderDialogTaskDetail(bodyContent, list, currentTaskItemId);
             const currentTask = getTask(taskItem, currentTaskItemId);
@@ -504,13 +506,12 @@ function createCardTaskItem(list) {
             dialogTaskDetail.showModal();
         });
 
-        btnDeleteTaskItem.addEventListener("click", () => {
+        imgDeleteIconTask.addEventListener("click", () => {
             deleteTask(list, currentTaskItemId);
             renderCardTaskItem(list);
         });
 
         containerNameAndDueDate.addEventListener("click", () => {
-            console.log("card taskList on click");
             renderDialogTaskDetail(bodyContent, list, currentTaskItemId);
             const currentTask = getTask(taskItem, currentTaskItemId);
             showTaskDetail(currentTask);
@@ -521,8 +522,8 @@ function createCardTaskItem(list) {
         containerNameAndDueDate.appendChild(cardListName);
         containerNameAndDueDate.appendChild(dueDateTask);
         subCardTask.appendChild(containerNameAndDueDate);
-        subCardTask.appendChild(btnEditTaskItem);
-        subCardTask.appendChild(btnDeleteTaskItem);
+        subCardTask.appendChild(imgEditIconTask);
+        subCardTask.appendChild(imgDeleteIconTask);
         card.appendChild(priorityColor);
         card.appendChild(checkbox);
         card.appendChild(subCardTask);
