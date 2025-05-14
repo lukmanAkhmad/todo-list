@@ -3,6 +3,8 @@ import { createTask, deleteTask, editTask, completeTask, getTask } from "./task"
 import { format } from "date-fns";
 
 import logoIcon from "./assets/img/logo-icon.svg";
+import editIcon from "./assets/img/edit-icon.svg";
+import deleteIcon from "./assets/img/delete-icon.svg";
 
 function renderScreen() {
     const body = document.querySelector("body");
@@ -20,10 +22,10 @@ function renderSidebar(parentNode) {
     const headerSidebar = document.createElement("div");
     headerSidebar.classList.add("header-sidebar");
 
-    const logoIconImg = document.createElement("img");
-    logoIconImg.src = logoIcon;
-    logoIconImg.classList.add("logo-icon");
-    logoIconImg.alt = "Todo List App Logo";
+    const imgLogoIcon = document.createElement("img");
+    imgLogoIcon.src = logoIcon;
+    imgLogoIcon.classList.add("logo-icon");
+    imgLogoIcon.alt = "Todo List App Logo";
 
     const nameApp = document.createElement("p");
     nameApp.classList.add("name-app");
@@ -49,7 +51,7 @@ function renderSidebar(parentNode) {
     containerBtnSidebar.appendChild(paraSidebar);
     containerBtnSidebar.appendChild(btnNewList);
 
-    headerSidebar.appendChild(logoIconImg);
+    headerSidebar.appendChild(imgLogoIcon);
     headerSidebar.appendChild(nameApp);
 
     sidebar.appendChild(headerSidebar);
@@ -141,31 +143,33 @@ function createCardList(parentNode) {
         const currentListId = val.id;
         const btnContainerCardList = document.createElement("div");
         btnContainerCardList.classList.add("btn-container-card-list");
-        const btnEditList = document.createElement("button");
-        btnEditList.classList.add("btn-edit-list");
-        btnEditList.setAttribute("type", "button");
-        btnEditList.textContent = "Edit";
-        const btnDeleteList = document.createElement("button");
-        btnDeleteList.classList.add("btn-delete-list");
-        btnDeleteList.setAttribute("type", "button");
-        btnDeleteList.textContent = "Delete";
 
-        btnEditList.addEventListener("click", (e) => {
+        const imgEditIcon = document.createElement("img");
+        imgEditIcon.classList.add("edit-icon-img");
+        imgEditIcon.src = editIcon;
+        imgEditIcon.alt = "Edit icon";
+        imgEditIcon.title = "Edit icon";
+
+        const imgDeleteIcon = document.createElement("img");
+        imgDeleteIcon.classList.add("delete-icon-img");
+        imgDeleteIcon.src = deleteIcon;
+        imgDeleteIcon.alt = "Delete icon";
+        imgDeleteIcon.title = "Delete icon";
+
+        imgEditIcon.addEventListener("click", (e) => {
             e.preventDefault();
-            renderDialogEditList(parentNode, currentListId)
+            renderDialogEditList(parentNode, currentListId);
             const dialogList = document.querySelector("#dialog-edit-list");
             dialogList.showModal();
         });
 
-        btnDeleteList.addEventListener("click", () => {
-            console.log("Button Delete List Onclick");
+        imgDeleteIcon.addEventListener("click", () => {
             deleteList(currentListId);
             renderCardList();
             const headerContainer = document.querySelector("#header-content");
             const bodyContent = document.querySelector("#body-content");
             headerContainer.textContent = "";
             bodyContent.textContent = "";
-            console.table(lists);
         });
 
         card.addEventListener("click", () => {
@@ -180,8 +184,8 @@ function createCardList(parentNode) {
             createCardTaskItem(findList);
         });
 
-        btnContainerCardList.appendChild(btnEditList);
-        btnContainerCardList.appendChild(btnDeleteList);
+        btnContainerCardList.appendChild(imgEditIcon);
+        btnContainerCardList.appendChild(imgDeleteIcon);
         subCardList.appendChild(cardListName);
         subCardList.appendChild(btnContainerCardList);
         card.appendChild(subCardList);
@@ -678,5 +682,5 @@ function renderCardTaskItem(list) {
 
 export { renderScreen };
 
-// styling header sidebar
-// add font family
+// styling button card list
+// button di ganti div => di dalem di tambahin icon

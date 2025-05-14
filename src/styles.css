@@ -17,6 +17,8 @@
     --color-grey-black: #eaeaea;
     --color-grey-wthite: #eeeeee;
     --color-grey-input: #E5E7EB;
+    --color-red-hover: #e54c38;
+    --color-green-hover: #0cc078;
 }
 
 @font-face {
@@ -45,6 +47,7 @@ body {
     display: grid;
     grid-template-rows: 2fr 1fr 7fr;
     padding: 0px 9px 0px 9px;
+    min-width: 315px;
 }
 
 .header-sidebar {
@@ -85,13 +88,27 @@ body {
 }
 
 .card-list {
-    border: 3px solid var(--color-grey);
-    display: flex;
-    width: 315px;
+    width: inherit;
     height: 45px;
     border-radius: 9px;
     background-color: white;
     padding: 0px 9px 0px 9px;
+    border: 3px solid var(--color-grey);
+}
+
+.edit-icon-img,
+.delete-icon-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+}
+
+.edit-icon-img:hover {
+    background-color: var(--color-green-hover);
+}
+
+.delete-icon-img:hover {
+    background-color: var(--color-red-hover);
 }
 
 .sub-card-list {
