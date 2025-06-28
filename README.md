@@ -1,4 +1,4 @@
-# webpack-template
+# Todo List App
 
 Visit Website: [Todo List App](https://lukmanakhmad.github.io/todo-list/)
 
